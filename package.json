@@ -4,6 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start:server": "cd NeteaseCloudMusicApi && cross-env port=3000 node app.js",
+    "start:react": "vite",
+    "start": "concurrently \"npm run start:server\" \"npm run start:react\"",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",

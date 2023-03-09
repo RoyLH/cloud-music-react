@@ -90,3 +90,27 @@ npm pkg set scripts.lint:css="stylelint \"src/**/*.{scss,css,sass}\" --no-fix"
   ]
 }
 ```
+
+## Add NeteaseCloudMusicApi project as submodule
+
+```sh
+git submodule add git@github.com:Binaryify/NeteaseCloudMusicApi.git
+
+cd NeteaseCloudMusicApi
+
+git checkout 98bb292
+
+npm install
+
+cd ..
+
+npm pkg set scripts.start:server="cd NeteaseCloudMusicApi && cross-env port=3000 node app.js"
+npm pkg set scripts.start:react="vite"
+npm pkg set scripts.start="concurrently \"npm run start:server\" \"npm run start:react\""
+```
+
+## Run project
+
+```sh
+npm start
+```
