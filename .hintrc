@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "disown-opener": "off",
+    "compact-api/css": [
+      "default",
+      {
+        "ignore": [
+          "color-scheme",
+          "font-synthesis",
+          "text-size-adjust"
+        ]
+      }
+    ],
+    "no-inline-styles": "off",
+    "axe/structure": [
+      "default",
+      {
+        "listitem": "off"
+      }
+    ],
+    "typescript-config/consistent-casing": "off"
+  }
+}
