@@ -1,0 +1,14 @@
+/* stylelint-disable media-feature-name-no-unknown */
+@media only screen and (min-device-pixel-ratio: 2.0) {
+  .border-bottom::after {
+      transform: scaleY(0.5);
+  }
+}
+
+/* 3倍屏 */
+@media only screen and (min-device-pixel-ratio: 3.0) {
+  .border-bottom::after {
+      transform: scaleY(0.33);
+      color: rgb(151, 127, 127);
+  }
+}

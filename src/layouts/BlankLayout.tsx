@@ -3,7 +3,6 @@ import { Outlet } from 'react-router'
 
 const Layout = () => (
   <>
-    BlankLayout
     <Outlet />
   </>
 )
