@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { connect } from 'react-redux'
+import { useNavigate, useParams } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
 import { HEADER_HEIGHT } from '../../api/config'
-import Header from '../../baseUI/header/index'
-import Loading from '../../baseUI/loading/index'
-import MusicNote from '../../baseUI/music-note/index'
-import Scroll from '../../baseUI/scroll/index'
+import Header from '../../baseUI/header'
+import Loading from '../../baseUI/loading'
+import MusicNote from '../../baseUI/music-note'
+import Scroll from '../../baseUI/scroll'
 import { EnterLoading } from '../Singers/style'
 import SongsList from '../SongList'
 import * as actions from './store/actions'
@@ -20,6 +21,8 @@ import {
 function Singer(props: any) {
   const initialHeight = useRef(0)
   const [showStatus, setShowStatus] = useState(true)
+  const navigate = useNavigate()
+  const { id } = useParams()
 
   const OFFSET = 5
 
@@ -44,7 +47,6 @@ function Singer(props: any) {
   const musicNoteRef = useRef<any>(null)
 
   useEffect(() => {
-    const id = props.match.params.id
     getSingerDataDispatch(id)
     const h = imageWrapper.current!.offsetHeight
     initialHeight.current = h
@@ -109,7 +111,7 @@ function Singer(props: any) {
       classNames="fly"
       appear={true}
       unmountOnExit
-      onExited={() => navigator()}
+      onExited={() => navigate(-1)}
     >
       <Container>
         <Header
@@ -147,9 +149,9 @@ function Singer(props: any) {
 }
 
 const mapStateToProps = (state: any) => ({
-  artist: state.getIn(['singerInfo', 'artist']),
-  songs: state.getIn(['singerInfo', 'songsOfArtist']),
-  loading: state.getIn(['singerInfo', 'loading']),
+  artist: state.getIn(['singer', 'artist']),
+  songs: state.getIn(['singer', 'songsOfArtist']),
+  loading: state.getIn(['singer', 'loading']),
   songsCount: state.getIn(['player', 'playList']).size,
 })
 

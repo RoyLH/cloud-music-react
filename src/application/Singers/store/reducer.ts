@@ -18,13 +18,13 @@ const reducer = (state = defaultState, action: any) => {
         alpha: action.data,
         listOffset: 0,
         enterLoading: true,
-      })
+      }) as any
     case actionTypes.CHANGE_CATOGORY:
       return state.merge({
         category: action.data,
         listOffset: 0,
         enterLoading: true,
-      })
+      }) as any
     case actionTypes.CHANGE_SINGER_LIST:
       return state.set('singerList', action.data)
     case actionTypes.CHANGE_LIST_OFFSET:

@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { connect } from 'react-redux'
+import { useNavigate, useParams } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
 import { isEmptyObject } from '../../api/utils'
 import style from '../../assets/global-style'
@@ -21,7 +22,8 @@ function Album(props: any) {
   const musicNoteRef = useRef<any>(null)
   const headerEl = useRef<HTMLDivElement | null>(null)
 
-  const id = props.match.params.id
+  const navigate = useNavigate()
+  const { id } = useParams()
 
   const { currentAlbum, enterLoading, pullUpLoading, songsCount } = props
   const { getAlbumDataDispatch, changePullUpLoadingStateDispatch } = props
@@ -72,7 +74,7 @@ function Album(props: any) {
       classNames="fly"
       appear={true}
       unmountOnExit
-      onExited={props.history.goBack}
+      onExited={() => navigate(-1)}
     >
       <Container play={songsCount}>
         <Header
