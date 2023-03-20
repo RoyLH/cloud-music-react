@@ -15,7 +15,7 @@ import {
   CollectButton,
   Container,
   ImgWrapper,
-  SongListWrapper
+  SongListWrapper,
 } from './style'
 
 function Singer(props: any) {
