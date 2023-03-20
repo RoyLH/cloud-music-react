@@ -54,11 +54,11 @@ const slice = createSlice({
     builder.addCase(
       getAlbumList.fulfilled,
       (state: InitialState, { payload }) => {
-        const { playList } = payload as any
+        const { playlist } = payload as any
 
         slice.caseReducers.CHANGE_CURRENT_ALBUM(state, {
           type: 'CHANGE_CURRENT_ALBUM',
-          payload: playList,
+          payload: playlist,
         })
 
         slice.caseReducers.CHANGE_ENTER_LOADING(state, {
@@ -73,7 +73,7 @@ const slice = createSlice({
 
         slice.caseReducers.CHANGE_TOTAL_COUNT(state, {
           type: 'CHANGE_TOTAL_COUNT',
-          payload: playList.tracks.length,
+          payload: playlist.tracks.length,
         })
       }
     )

@@ -105,11 +105,9 @@ function Singers(props: any) {
   }
 
   const renderSingerList = () => {
-    const { singerList } = props
-
     return (
       <List>
-        {singerList.toJS().map((item: any, index: number) => {
+        {singerList.map((item: any, index: number) => {
           return (
             <ListItem
               key={item.accountId + '' + index}

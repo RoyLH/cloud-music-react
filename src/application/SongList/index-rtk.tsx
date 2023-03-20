@@ -94,30 +94,4 @@ const SongsList = React.forwardRef((props: any, refs: any) => {
   )
 })
 
-// const mapStateToProps = (state: any) => ({
-//   fullScreen: state.getIn(['player', 'fullScreen']),
-//   playing: state.getIn(['player', 'playing']),
-//   currentSong: state.getIn(['player', 'currentSong']),
-//   scrollY: state.getIn(['album', 'scrollY']),
-// })
-
-// const mapDispatchToProps = (dispatch: (...args: any[]) => void) => {
-//   return {
-//     changePlayListDispatch(data: any) {
-//       dispatch(actions.changePlayList(data))
-//     },
-//     changeCurrentIndexDispatch(data: any) {
-//       dispatch(actions.changeCurrentIndex(data))
-//     },
-//     changeSequecePlayListDispatch(data: any) {
-//       dispatch(actions.changeSequencePlayList(data))
-//     },
-//   }
-// }
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(React.memo(SongsList))
-
 export default React.memo(SongsList)

@@ -8,14 +8,14 @@ import MusicNote from '../../baseUI/music-note'
 import Scroll from '../../baseUI/scroll'
 import { useAppDispatch, useAppSelector } from '../../slice'
 import { EnterLoading } from '../Singers/style'
-import SongsList from '../SongList'
+import SongsList from '../SongList/index-rtk'
 import singerSlice, { getSingerInfo } from './slice'
 import {
   BgLayer,
   CollectButton,
   Container,
   ImgWrapper,
-  SongListWrapper,
+  SongListWrapper
 } from './style'
 
 function Singer(props: any) {
@@ -149,21 +149,4 @@ function Singer(props: any) {
   )
 }
 
-// const mapStateToProps = (state: any) => ({
-//   artist: state.getIn(['singer', 'artist']),
-//   songs: state.getIn(['singer', 'songsOfArtist']),
-//   loading: state.getIn(['singer', 'loading']),
-//   songsCount: state.getIn(['player', 'playList']).size,
-// })
-
-// const mapDispatchToProps = (dispatch: (...args: any[]) => void) => {
-//   return {
-//     getSingerDataDispatch(id: string) {
-//       dispatch(actions.changeEnterLoading(true))
-//       dispatch(actions.getSingerInfo(id))
-//     },
-//   }
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Singer))
 export default React.memo(Singer)

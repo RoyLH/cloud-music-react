@@ -97,6 +97,7 @@ function Album(props: any) {
             bounceTop={false}
           >
             <AlbumDetail
+              rtk={true}
               currentAlbum={currentAlbum}
               pullUpLoading={pullUpLoading}
               musicAnimation={musicAnimation}
@@ -114,26 +115,4 @@ function Album(props: any) {
   )
 }
 
-// const mapStateToProps = (state: any) => ({
-//   currentAlbum: state.getIn(['album', 'currentAlbum']),
-//   pullUpLoading: state.getIn(['album', 'pullUpLoading']),
-//   enterLoading: state.getIn(['album', 'enterLoading']),
-//   startIndex: state.getIn(['album', 'startIndex']),
-//   totalCount: state.getIn(['album', 'totalCount']),
-//   songsCount: state.getIn(['player', 'playList']).size,
-// })
-
-// const mapDispatchToProps = (dispatch: (...args: any[]) => void) => {
-//   return {
-//     getAlbumDataDispatch(id: string) {
-//       dispatch(actions.changeEnterLoading(true))
-//       dispatch(actions.getAlbumList(id))
-//     },
-//     changePullUpLoadingStateDispatch(state: any) {
-//       dispatch(actions.changePullUpLoading(state))
-//     },
-//   }
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Album))
 export default React.memo(Album)

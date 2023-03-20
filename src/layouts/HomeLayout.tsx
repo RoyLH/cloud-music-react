@@ -6,6 +6,7 @@ import { Tab, TabItem, Top } from './HomeLayout.style'
 
 const HomeLayout = (props: any) => {
   const { rtk } = props
+
   const navigate = useNavigate()
 
   return (
@@ -49,8 +50,7 @@ const HomeLayout = (props: any) => {
         </NavLink>
       </Tab>
       <Outlet />
-      <Player />
-      {rtk ? <Player /> : <PlayerRTK />}
+      {rtk ? <PlayerRTK /> : <Player />}
     </div>
   )
 }

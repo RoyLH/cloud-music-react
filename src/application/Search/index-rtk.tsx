@@ -49,7 +49,7 @@ const Search = (props: any) => {
   }, [])
 
   const renderHotKey = () => {
-    const list = hotList ? hotList.toJS() : []
+    const list = hotList || []
     return (
       <ul>
         {list.map((item: any) => {

@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(), (vitePluginRequire as any).default()],
   define: {
     'process.env': {
-      rtk: false,
+      rtk: true,
     },
   },
 })

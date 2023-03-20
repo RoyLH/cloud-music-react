@@ -291,46 +291,4 @@ function Player(props: any) {
   )
 }
 
-// const mapStateToProps = (state: any) => ({
-//   fullScreen: state.getIn(['player', 'fullScreen']),
-//   playing: state.getIn(['player', 'playing']),
-//   currentSong: state.getIn(['player', 'currentSong']),
-//   showPlayList: state.getIn(['player', 'showPlayList']),
-//   mode: state.getIn(['player', 'mode']),
-//   speed: state.getIn(['player', 'speed']),
-//   currentIndex: state.getIn(['player', 'currentIndex']),
-//   playList: state.getIn(['player', 'playList']),
-//   sequencePlayList: state.getIn(['player', 'sequencePlayList']),
-// })
-
-// const mapDispatchToProps = (dispatch: (...args: any[]) => void) => {
-//   return {
-//     togglePlayingDispatch(data: any) {
-//       dispatch(actions.changePlayingState(data))
-//     },
-//     toggleFullScreenDispatch(data: any) {
-//       dispatch(actions.changeFullScreen(data))
-//     },
-//     togglePlayListDispatch(data: any) {
-//       dispatch(actions.changeShowPlayList(data))
-//     },
-//     changeCurrentIndexDispatch(index: number) {
-//       dispatch(actions.changeCurrentIndex(index))
-//     },
-//     changeCurrentDispatch(data: any) {
-//       dispatch(actions.changeCurrentSong(data))
-//     },
-//     changeModeDispatch(data: any) {
-//       dispatch(actions.changePlayMode(data))
-//     },
-//     changePlayListDispatch(data: any) {
-//       dispatch(actions.changePlayList(data))
-//     },
-//     changeSpeedDispatch(data: any) {
-//       dispatch(actions.changeSpeed(data))
-//     },
-//   }
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Player))
 export default React.memo(Player)

@@ -12,6 +12,7 @@ import { Content } from './style'
 
 function Recommend(props: any) {
   const dispatch = useAppDispatch()
+
   const {
     recommend: { bannerList, recommendList, enterLoading },
     player: {
@@ -36,15 +37,12 @@ function Recommend(props: any) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const bannerListJS = bannerList ? bannerList.toJS() : []
-  const recommendListJS = recommendList ? recommendList.toJS() : []
-
   return (
     <Content play={songsCount}>
       <Scroll className="list" onScroll={forceCheck}>
         <div>
-          <Slider bannerList={bannerListJS}></Slider>
-          <RecommendList recommendList={recommendListJS}></RecommendList>
+          <Slider bannerList={bannerList}></Slider>
+          <RecommendList recommendList={recommendList}></RecommendList>
         </div>
       </Scroll>
       {enterLoading ? (
@@ -56,28 +54,5 @@ function Recommend(props: any) {
     </Content>
   )
 }
-
-// const mapStateToProps = (state: any) => ({
-//   bannerList: state.getIn(['recommend', 'bannerList']),
-//   recommendList: state.getIn(['recommend', 'recommendList']),
-//   songsCount: state.getIn(['player', 'playList']).size,
-//   enterLoading: state.getIn(['recommend', 'enterLoading']),
-// })
-
-// const mapDispatchToProps = (dispatch: (...args: any[]) => void) => {
-//   return {
-//     getBannerDataDispatch() {
-//       dispatch(actions.getBannerList())
-//     },
-//     getRecommendListDataDispatch() {
-//       dispatch(actions.getRecommendList())
-//     },
-//   }
-// }
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(React.memo(Recommend))
 
 export default React.memo(Recommend)
