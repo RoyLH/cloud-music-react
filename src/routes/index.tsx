@@ -20,12 +20,30 @@ const LazyImportComponent = (props: {
   )
 }
 
-const RecommendComponent = lazy(() => import('../application/Recommend'))
-const AlbumComponent = lazy(() => import('../application/Album'))
-const SingersComponent = lazy(() => import('../application/Singers'))
-const SingerComponent = lazy(() => import('../application/Singer'))
-const RankComponent = lazy(() => import('../application/Rank'))
-const SearchComponent = lazy(() => import('../application/Search'))
+const { rtk } = process.env
+
+let RecommendComponent,
+  AlbumComponent,
+  SingersComponent,
+  SingerComponent,
+  RankComponent,
+  SearchComponent
+
+if (rtk) {
+  RecommendComponent = lazy(() => import('../application/Recommend/index-rtk'))
+  AlbumComponent = lazy(() => import('../application/Album/index-rtk'))
+  SingersComponent = lazy(() => import('../application/Singers/index-rtk'))
+  SingerComponent = lazy(() => import('../application/Singer/index-rtk'))
+  RankComponent = lazy(() => import('../application/Rank/index-rtk'))
+  SearchComponent = lazy(() => import('../application/Search/index-rtk'))
+} else {
+  RecommendComponent = lazy(() => import('../application/Recommend'))
+  AlbumComponent = lazy(() => import('../application/Album'))
+  SingersComponent = lazy(() => import('../application/Singers'))
+  SingerComponent = lazy(() => import('../application/Singer'))
+  RankComponent = lazy(() => import('../application/Rank'))
+  SearchComponent = lazy(() => import('../application/Search'))
+}
 
 const routes: RouteObject[] = [
   {
@@ -33,7 +51,7 @@ const routes: RouteObject[] = [
     children: [
       {
         path: '/',
-        element: <HomeLayout />,
+        element: <HomeLayout rtk={rtk} />,
         children: [
           {
             index: true,

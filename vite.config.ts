@@ -6,6 +6,8 @@ import vitePluginRequire from 'vite-plugin-require'
 export default defineConfig({
   plugins: [react(), (vitePluginRequire as any).default()],
   define: {
-    'process.env': {},
+    'process.env': {
+      rtk: false,
+    },
   },
 })

@@ -1,9 +1,10 @@
 import React from 'react'
 import SongsList from '../../application/SongList/'
+import SongsListRTK from '../../application/SongList/index-rtk'
 import { Menu, TopDesc } from './style'
 
 function AlbumDetail(props: any) {
-  const { currentAlbum, pullUpLoading } = props
+  const { rtk, currentAlbum, pullUpLoading } = props
 
   const renderTopDesc = () => {
     return (
@@ -57,7 +58,16 @@ function AlbumDetail(props: any) {
     )
   }
   const renderSongList = () => {
-    return (
+    return rtk ? (
+      <SongsListRTK
+        songs={currentAlbum.tracks}
+        collectCount={currentAlbum.subscribedCount}
+        showCollect={true}
+        loading={pullUpLoading}
+        musicAnimation={props.musicAnimation}
+        showBackground={true}
+      ></SongsListRTK>
+    ) : (
       <SongsList
         songs={currentAlbum.tracks}
         collectCount={currentAlbum.subscribedCount}

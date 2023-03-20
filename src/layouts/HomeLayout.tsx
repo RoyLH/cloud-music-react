@@ -1,9 +1,11 @@
 import React from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import Player from '../application/Player'
+import PlayerRTK from '../application/Player/index-rtk'
 import { Tab, TabItem, Top } from './HomeLayout.style'
 
-const HomeLayout = () => {
+const HomeLayout = (props: any) => {
+  const { rtk } = props
   const navigate = useNavigate()
 
   return (
@@ -48,6 +50,7 @@ const HomeLayout = () => {
       </Tab>
       <Outlet />
       <Player />
+      {rtk ? <Player /> : <PlayerRTK />}
     </div>
   )
 }

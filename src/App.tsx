@@ -4,12 +4,15 @@ import { HashRouter } from 'react-router-dom'
 import { IconStyle } from './assets/iconfont/iconfont'
 import './fix.css'
 import RouterElement from './routes'
-import store from './store/index'
+import slice from './slice'
+import store from './store'
 import { GlobalStyle } from './style'
 
 function App() {
+  const { rtk } = process.env
+
   return (
-    <Provider store={store}>
+    <Provider store={(rtk ? slice : store) as any}>
       <HashRouter>
         <GlobalStyle></GlobalStyle>
         <IconStyle></IconStyle>
