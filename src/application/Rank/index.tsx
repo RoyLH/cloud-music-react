@@ -10,11 +10,11 @@ import { Container, List, ListItem, SongList } from './style'
 
 function Rank(props: any) {
   const { rankList: list, loading, songsCount } = props
+  const rankList = list ? list.toJS() : []
+
   const { getRankListDataDispatch } = props
 
   const navigate = useNavigate()
-
-  const rankList = list ? list.toJS() : []
 
   useEffect(() => {
     if (!rankList.length) {

@@ -29,6 +29,10 @@ function Player(props: any) {
     fullScreen,
   } = props
 
+  const playList = immutablePlayList.toJS()
+  const sequencePlayList = immutableSequencePlayList.toJS()
+  const currentSong = immutableCurrentSong.toJS()
+
   const {
     togglePlayingDispatch,
     togglePlayListDispatch,
@@ -39,10 +43,6 @@ function Player(props: any) {
     toggleFullScreenDispatch,
     changeSpeedDispatch,
   } = props
-
-  const playList = immutablePlayList.toJS()
-  const sequencePlayList = immutableSequencePlayList.toJS()
-  const currentSong = immutableCurrentSong.toJS()
 
   const [preSong, setPreSong] = useState<any>({})
 

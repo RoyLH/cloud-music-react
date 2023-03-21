@@ -33,10 +33,10 @@ function Singer(props: any) {
     songsCount,
   } = props
 
-  const { getSingerDataDispatch } = props
-
   const artist = immutableArtist.toJS()
   const songs = immutableSongs.toJS()
+
+  const { getSingerDataDispatch } = props
 
   const collectButton = useRef<HTMLDivElement | null>(null)
   const imageWrapper = useRef<any>(null)

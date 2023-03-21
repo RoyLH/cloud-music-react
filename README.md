@@ -112,5 +112,11 @@ npm pkg set scripts.start="concurrently \"npm run start:server\" \"npm run start
 ## Run project
 
 ```sh
+git submodule update --init --recursive
+
+cd NeteaseCloudMusicApi
+npm install 
+
+cd ../  (注意: 一定要返回到上一层)
 npm start
 ```
