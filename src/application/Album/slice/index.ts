@@ -5,7 +5,7 @@ import {
 } from '@reduxjs/toolkit'
 import { getAlbumDetailRequest } from './../../../api/request'
 
-interface InitialState {
+interface State {
   currentAlbum: any
   pullUpLoading: boolean
   enterLoading: boolean
@@ -13,7 +13,7 @@ interface InitialState {
   totalCount: number
 }
 
-const initialState: InitialState = {
+const initialState: State = {
   currentAlbum: {},
   pullUpLoading: false,
   enterLoading: false,
@@ -49,34 +49,31 @@ const slice = createSlice({
       state.totalCount = action.payload
     },
   },
-  extraReducers: (builder: ActionReducerMapBuilder<InitialState>) => {
+  extraReducers: (builder: ActionReducerMapBuilder<State>) => {
     builder.addCase(getAlbumList.pending, () => {})
-    builder.addCase(
-      getAlbumList.fulfilled,
-      (state: InitialState, { payload }) => {
-        const { playlist } = payload as any
+    builder.addCase(getAlbumList.fulfilled, (state: State, { payload }) => {
+      const { playlist } = payload as any
 
-        slice.caseReducers.CHANGE_CURRENT_ALBUM(state, {
-          type: 'CHANGE_CURRENT_ALBUM',
-          payload: playlist,
-        })
+      slice.caseReducers.CHANGE_CURRENT_ALBUM(state, {
+        type: 'CHANGE_CURRENT_ALBUM',
+        payload: playlist,
+      })
 
-        slice.caseReducers.CHANGE_ENTER_LOADING(state, {
-          type: 'CHANGE_ENTER_LOADING',
-          payload: false,
-        })
+      slice.caseReducers.CHANGE_ENTER_LOADING(state, {
+        type: 'CHANGE_ENTER_LOADING',
+        payload: false,
+      })
 
-        slice.caseReducers.CHANGE_START_INDEX(state, {
-          type: 'CHANGE_START_INDEX',
-          payload: 0,
-        })
+      slice.caseReducers.CHANGE_START_INDEX(state, {
+        type: 'CHANGE_START_INDEX',
+        payload: 0,
+      })
 
-        slice.caseReducers.CHANGE_TOTAL_COUNT(state, {
-          type: 'CHANGE_TOTAL_COUNT',
-          payload: playlist.tracks.length,
-        })
-      }
-    )
+      slice.caseReducers.CHANGE_TOTAL_COUNT(state, {
+        type: 'CHANGE_TOTAL_COUNT',
+        payload: playlist.tracks.length,
+      })
+    })
     builder.addCase(getAlbumList.rejected, () => {
       console.log('获取album数据失败')
     })

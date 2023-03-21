@@ -2,18 +2,18 @@ import { fromJS } from 'immutable'
 import { getSingerInfoRequest } from '../../../api/request'
 import * as actionTypes from './constants'
 
-const changeArtist = (data: any) => ({
+const changeArtist = (payload: any) => ({
   type: actionTypes.CHANGE_ARTIST,
-  data: fromJS(data),
+  payload: fromJS(payload),
 })
 
-const changeSongs = (data: any) => ({
+const changeSongs = (payload: any) => ({
   type: actionTypes.CHANGE_SONGS_OF_ARTIST,
-  data: fromJS(data),
+  payload: fromJS(payload),
 })
-export const changeEnterLoading = (data: any) => ({
+export const changeEnterLoading = (payload: any) => ({
   type: actionTypes.CHANGE_ENTER_LOADING,
-  data,
+  payload,
 })
 
 export const getSingerInfo = (id: string) => {

@@ -6,24 +6,24 @@ import {
 } from '../../../api/request'
 import * as actionTypes from './constants'
 
-const changeHotKeyWords = (data: any) => ({
+const changeHotKeyWords = (payload: any) => ({
   type: actionTypes.SET_HOT_KEYWRODS,
-  data: fromJS(data),
+  payload: fromJS(payload),
 })
 
-const changeSuggestList = (data: any) => ({
+const changeSuggestList = (payload: any) => ({
   type: actionTypes.SET_SUGGEST_LIST,
-  data: fromJS(data),
+  payload: fromJS(payload),
 })
 
-const changeResultSongs = (data: any) => ({
+const changeResultSongs = (payload: any) => ({
   type: actionTypes.SET_RESULT_SONGS_LIST,
-  data: fromJS(data),
+  payload: fromJS(payload),
 })
 
-export const changeEnterLoading = (data: any) => ({
+export const changeEnterLoading = (payload: any) => ({
   type: actionTypes.SET_ENTER_LOADING,
-  data,
+  payload,
 })
 
 export const getHotKeyWords = () => {

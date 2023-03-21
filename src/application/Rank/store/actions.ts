@@ -2,14 +2,14 @@ import { fromJS } from 'immutable'
 import { getRankListRequest } from '../../../api/request'
 import * as actionTypes from './constants'
 
-const changeRankList = (data: any) => ({
+const changeRankList = (payload: any) => ({
   type: actionTypes.CHANGE_RANK_LIST,
-  data: fromJS(data),
+  payload: fromJS(payload),
 })
 
-const changeLoading = (data: any) => ({
+const changeLoading = (payload: any) => ({
   type: actionTypes.CHANGE_LOADING,
-  data,
+  payload,
 })
 
 export const getRankList = () => {

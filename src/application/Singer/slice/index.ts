@@ -5,13 +5,13 @@ import {
 } from '@reduxjs/toolkit'
 import { getSingerInfoRequest } from './../../../api/request'
 
-interface InitialState {
+interface State {
   artist: any
   songsOfArtist: any[]
   loading: boolean
 }
 
-const initialState: InitialState = {
+const initialState: State = {
   artist: {},
   songsOfArtist: [],
   loading: true,
@@ -38,27 +38,24 @@ const slice = createSlice({
       state.loading = action.payload
     },
   },
-  extraReducers: (builder: ActionReducerMapBuilder<InitialState>) => {
+  extraReducers: (builder: ActionReducerMapBuilder<State>) => {
     builder.addCase(getSingerInfo.pending, () => {})
-    builder.addCase(
-      getSingerInfo.fulfilled,
-      (state: InitialState, { payload }) => {
-        const { artist, hotSongs } = payload as any
+    builder.addCase(getSingerInfo.fulfilled, (state: State, { payload }) => {
+      const { artist, hotSongs } = payload as any
 
-        slice.caseReducers.CHANGE_ARTIST(state, {
-          type: 'CHANGE_ARTIST',
-          payload: artist,
-        })
-        slice.caseReducers.CHANGE_SONGS_OF_ARTIST(state, {
-          type: 'CHANGE_SONGS_OF_ARTIST',
-          payload: hotSongs,
-        })
-        slice.caseReducers.CHANGE_ENTER_LOADING(state, {
-          type: 'CHANGE_ENTER_LOADING',
-          payload: false,
-        })
-      }
-    )
+      slice.caseReducers.CHANGE_ARTIST(state, {
+        type: 'CHANGE_ARTIST',
+        payload: artist,
+      })
+      slice.caseReducers.CHANGE_SONGS_OF_ARTIST(state, {
+        type: 'CHANGE_SONGS_OF_ARTIST',
+        payload: hotSongs,
+      })
+      slice.caseReducers.CHANGE_ENTER_LOADING(state, {
+        type: 'CHANGE_ENTER_LOADING',
+        payload: false,
+      })
+    })
     builder.addCase(getSingerInfo.rejected, () => {})
   },
 })

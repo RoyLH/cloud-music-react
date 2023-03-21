@@ -9,14 +9,14 @@ import {
   getSuggestListRequest,
 } from './../../../api/request'
 
-interface InitialState {
+interface State {
   hotList: any[]
   suggestList: any[]
   songsList: any[]
   enterLoading: boolean
 }
 
-const initialState: InitialState = {
+const initialState: State = {
   hotList: [],
   suggestList: [],
   songsList: [],
@@ -57,49 +57,43 @@ const slice = createSlice({
       state.enterLoading = action.payload
     },
   },
-  extraReducers: (builder: ActionReducerMapBuilder<InitialState>) => {
+  extraReducers: (builder: ActionReducerMapBuilder<State>) => {
     builder.addCase(getHotKeyWords.pending, () => {})
-    builder.addCase(
-      getHotKeyWords.fulfilled,
-      (state: InitialState, { payload }) => {
-        const {
-          result: { hots },
-        } = payload as any
+    builder.addCase(getHotKeyWords.fulfilled, (state: State, { payload }) => {
+      const {
+        result: { hots },
+      } = payload as any
 
-        slice.caseReducers.SET_HOT_KEYWRODS(state, {
-          type: 'SET_HOT_KEYWRODS',
-          payload: hots,
-        })
-      }
-    )
+      slice.caseReducers.SET_HOT_KEYWRODS(state, {
+        type: 'SET_HOT_KEYWRODS',
+        payload: hots,
+      })
+    })
     builder.addCase(getHotKeyWords.rejected, () => {})
 
     builder.addCase(getSuggestList.pending, () => {})
-    builder.addCase(
-      getSuggestList.fulfilled,
-      (state: InitialState, { payload }) => {
-        const [
-          { result: suggestList = [] },
-          {
-            result: { songs = [] },
-          },
-        ] = payload as any
+    builder.addCase(getSuggestList.fulfilled, (state: State, { payload }) => {
+      const [
+        { result: suggestList = [] },
+        {
+          result: { songs = [] },
+        },
+      ] = payload as any
 
-        slice.caseReducers.SET_SUGGEST_LIST(state, {
-          type: 'SET_SUGGEST_LIST',
-          payload: suggestList,
-        })
+      slice.caseReducers.SET_SUGGEST_LIST(state, {
+        type: 'SET_SUGGEST_LIST',
+        payload: suggestList,
+      })
 
-        slice.caseReducers.SET_RESULT_SONGS_LIST(state, {
-          type: 'SET_RESULT_SONGS_LIST',
-          payload: songs,
-        })
-        slice.caseReducers.SET_ENTER_LOADING(state, {
-          type: 'SET_ENTER_LOADING',
-          payload: false,
-        })
-      }
-    )
+      slice.caseReducers.SET_RESULT_SONGS_LIST(state, {
+        type: 'SET_RESULT_SONGS_LIST',
+        payload: songs,
+      })
+      slice.caseReducers.SET_ENTER_LOADING(state, {
+        type: 'SET_ENTER_LOADING',
+        payload: false,
+      })
+    })
     builder.addCase(getSuggestList.rejected, () => {})
   },
 })

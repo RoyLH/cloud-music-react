@@ -7,7 +7,7 @@ import { playMode } from '../../../api/config'
 import { findIndex } from '../../../api/utils'
 import { getSongDetailRequest } from './../../../api/request'
 
-interface InitialState {
+interface State {
   fullScreen: boolean
   playing: boolean
   sequencePlayList: any[]
@@ -19,7 +19,7 @@ interface InitialState {
   speed: number
 }
 
-const initialState: InitialState = {
+const initialState: State = {
   fullScreen: false,
   playing: false,
   sequencePlayList: [],
@@ -131,19 +131,16 @@ const slice = createSlice({
       state.speed = action.payload
     },
   },
-  extraReducers: (builder: ActionReducerMapBuilder<InitialState>) => {
+  extraReducers: (builder: ActionReducerMapBuilder<State>) => {
     builder.addCase(getSongDetail.pending, () => {})
-    builder.addCase(
-      getSongDetail.fulfilled,
-      (state: InitialState, { payload }) => {
-        const { songs } = payload as any
+    builder.addCase(getSongDetail.fulfilled, (state: State, { payload }) => {
+      const { songs } = payload as any
 
-        slice.caseReducers.INSERT_SONG(state, {
-          type: 'INSERT_SONG',
-          payload: songs[0],
-        })
-      }
-    )
+      slice.caseReducers.INSERT_SONG(state, {
+        type: 'INSERT_SONG',
+        payload: songs[0],
+      })
+    })
     builder.addCase(getSongDetail.rejected, () => {})
   },
 })

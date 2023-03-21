@@ -5,42 +5,42 @@ import {
 } from '../../../api/request'
 import * as actionTypes from './constants'
 
-export const changeCategory = (data: any) => ({
+export const changeCategory = (payload: any) => ({
   type: actionTypes.CHANGE_CATOGORY,
-  data,
+  payload,
 })
 
-export const changeAlpha = (data: any) => ({
+export const changeAlpha = (payload: any) => ({
   type: actionTypes.CHANGE_ALPHA,
-  data,
+  payload,
 })
 
-const changeSingerList = (data: any) => ({
+const changeSingerList = (payload: any) => ({
   type: actionTypes.CHANGE_SINGER_LIST,
-  data: fromJS(data),
+  payload: fromJS(payload),
 })
 
-export const changeListOffset = (data: any) => ({
+export const changeListOffset = (payload: any) => ({
   type: actionTypes.CHANGE_LIST_OFFSET,
-  data,
+  payload,
 })
 
 //进场loading
-export const changeEnterLoading = (data: any) => ({
+export const changeEnterLoading = (payload: any) => ({
   type: actionTypes.CHANGE_ENTER_LOADING,
-  data,
+  payload,
 })
 
 //滑动最底部loading
-export const changePullUpLoading = (data: any) => ({
+export const changePullUpLoading = (payload: any) => ({
   type: actionTypes.CHANGE_PULLUP_LOADING,
-  data,
+  payload,
 })
 
 //顶部下拉刷新loading
-export const changePullDownLoading = (data: any) => ({
+export const changePullDownLoading = (payload: any) => ({
   type: actionTypes.CHANGE_PULLDOWN_LOADING,
-  data,
+  payload,
 })
 
 export const getHotSingerList = () => {

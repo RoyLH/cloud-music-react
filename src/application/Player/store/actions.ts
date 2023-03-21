@@ -2,100 +2,60 @@ import { fromJS } from 'immutable'
 import { getSongDetailRequest } from '../../../api/request'
 import * as actionTypes from './constants'
 
-export const changeCurrentSong = (data: any) => ({
+export const changeCurrentSong = (payload: any) => ({
   type: actionTypes.SET_CURRENT_SONG,
-  data: fromJS(data),
+  payload: fromJS(payload),
 })
 
-export const changeFullScreen = (data: any) => ({
+export const changeFullScreen = (payload: any) => ({
   type: actionTypes.SET_FULL_SCREEN,
-  data,
+  payload,
 })
 
-export const changePlayingState = (data: any) => ({
+export const changePlayingState = (payload: any) => ({
   type: actionTypes.SET_PLAYING_STATE,
-  data,
+  payload,
 })
 
-export const changeSequencePlayList = (data: any) => ({
+export const changeSequencePlayList = (payload: any) => ({
   type: actionTypes.SET_SEQUENCE_PLAYLIST,
-  data: fromJS(data),
+  payload: fromJS(payload),
 })
 
-export const changePlayList = (data: any) => ({
+export const changePlayList = (payload: any) => ({
   type: actionTypes.SET_PLAYLIST,
-  data: fromJS(data),
+  payload: fromJS(payload),
 })
 
-export const changePlayMode = (data: any) => ({
+export const changePlayMode = (payload: any) => ({
   type: actionTypes.SET_PLAY_MODE,
-  data,
+  payload,
 })
 
-export const changeSpeed = (data: any) => ({
+export const changeSpeed = (payload: any) => ({
   type: actionTypes.CHANGE_SPEED,
-  data,
+  payload,
 })
 
-export const changeCurrentIndex = (data: any) => ({
+export const changeCurrentIndex = (payload: any) => ({
   type: actionTypes.SET_CURRENT_INDEX,
-  data,
+  payload,
 })
 
-export const changeShowPlayList = (data: any) => ({
+export const changeShowPlayList = (payload: any) => ({
   type: actionTypes.SET_SHOW_PLAYLIST,
-  data,
+  payload,
 })
 
-export const insertSong = (data: any) => ({
+export const insertSong = (payload: any) => ({
   type: actionTypes.INSERT_SONG,
-  data,
+  payload,
 })
 
-export const deleteSong = (data: any) => ({
+export const deleteSong = (payload: any) => ({
   type: actionTypes.DELETE_SONG,
-  data,
+  payload,
 })
-
-// const insertSong = (dispatch, getState, song) => {
-//   const playList = JSON.parse(JSON.stringify(getState().getIn(['player', 'playList']).toJS()));
-//   const sequenceList = JSON.parse(JSON.stringify(getState().getIn(['player', 'sequencePlayList']).toJS()));
-//   let currentIndex = getState().getIn(['player', 'currentIndex']);
-//   //看看有没有同款
-//   let fpIndex = findIndex(song, playList);
-//   // 如果是当前歌曲直接不处理
-//   if(fpIndex === currentIndex && currentIndex != -1) return;
-//   currentIndex++;
-//   // 把歌放进去,放到当前播放曲目的下一个位置
-//   playList.splice(currentIndex, 0, song);
-//   console.log(playList)
-//   console.log(currentIndex)
-//   console.log(fpIndex)
-//   // 如果列表中已经存在要添加的歌
-//   if(fpIndex > -1) {
-//     if(currentIndex > fpIndex) {
-//       playList.splice(fpIndex, 1);
-//       currentIndex--;
-//     } else {
-//       playList.splice(fpIndex+1, 1);
-//     }
-//   }
-
-//   let sequenceIndex = findIndex(playList[currentIndex], sequenceList) + 1;
-//   sequenceList.splice(sequenceIndex, 0, song);
-//   let fsIndex = findIndex(song, sequenceList);
-//   if(fsIndex > -1) {
-//     if(currentIndex > fsIndex) {
-//       sequenceList.splice(fsIndex, 1);
-//       currentIndex--;
-//     } else {
-//       sequenceList.splice(fsIndex + 1, 1);
-//     }
-//   }
-//   dispatch(changePlayList(playList));
-//   dispatch(changeSequecePlayList(sequenceList));
-//   dispatch(changeCurrentIndex(currentIndex));
-// }
 
 export const getSongDetail = (id: string) => {
   return (dispatch: (...args: any[]) => void) => {

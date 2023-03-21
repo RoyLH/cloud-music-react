@@ -1,9 +1,21 @@
-import { fromJS } from 'immutable'
+import { fromJS, FromJS } from 'immutable'
 import { playMode } from '../../../api/config'
 import { findIndex } from '../../../api/utils'
 import * as actionTypes from './constants'
 
-const defaultState = fromJS({
+interface State {
+  fullScreen: boolean
+  playing: boolean
+  sequencePlayList: any[]
+  playList: any[]
+  mode: number
+  currentIndex: number
+  showPlayList: boolean
+  currentSong: any
+  speed: number
+}
+
+const defaultState: FromJS<State> = fromJS({
   fullScreen: false,
   playing: false,
   sequencePlayList: [],
@@ -80,27 +92,27 @@ const handleDeleteSong = (state: any, song: any) => {
 const reducer = (state = defaultState, action: any) => {
   switch (action.type) {
     case actionTypes.SET_CURRENT_SONG:
-      return state.set('currentSong', action.data)
+      return state.set('currentSong', action.payload)
     case actionTypes.SET_FULL_SCREEN:
-      return state.set('fullScreen', action.data)
+      return state.set('fullScreen', action.payload)
     case actionTypes.SET_PLAYING_STATE:
-      return state.set('playing', action.data)
+      return state.set('playing', action.payload)
     case actionTypes.SET_SEQUENCE_PLAYLIST:
-      return state.set('sequencePlayList', action.data)
+      return state.set('sequencePlayList', action.payload)
     case actionTypes.SET_PLAYLIST:
-      return state.set('playList', action.data)
+      return state.set('playList', action.payload)
     case actionTypes.SET_PLAY_MODE:
-      return state.set('mode', action.data)
+      return state.set('mode', action.payload)
     case actionTypes.SET_CURRENT_INDEX:
-      return state.set('currentIndex', action.data)
+      return state.set('currentIndex', action.payload)
     case actionTypes.SET_SHOW_PLAYLIST:
-      return state.set('showPlayList', action.data)
+      return state.set('showPlayList', action.payload)
     case actionTypes.INSERT_SONG:
-      return handleInsertSong(state, action.data)
+      return handleInsertSong(state, action.payload)
     case actionTypes.DELETE_SONG:
-      return handleDeleteSong(state, action.data)
+      return handleDeleteSong(state, action.payload)
     case actionTypes.CHANGE_SPEED:
-      return state.set('speed', action.data)
+      return state.set('speed', action.payload)
     default:
       return state
   }

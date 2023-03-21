@@ -5,12 +5,12 @@ import {
 } from '@reduxjs/toolkit'
 import { getRankListRequest } from './../../../api/request'
 
-interface InitialState {
+interface State {
   rankList: any[]
   loading: true
 }
 
-const initialState: InitialState = {
+const initialState: State = {
   rankList: [],
   loading: true,
 }
@@ -30,23 +30,20 @@ const slice = createSlice({
       state.loading = action.payload
     },
   },
-  extraReducers: (builder: ActionReducerMapBuilder<InitialState>) => {
+  extraReducers: (builder: ActionReducerMapBuilder<State>) => {
     builder.addCase(getRankList.pending, () => {})
-    builder.addCase(
-      getRankList.fulfilled,
-      (state: InitialState, { payload }) => {
-        const { list } = payload as any
+    builder.addCase(getRankList.fulfilled, (state: State, { payload }) => {
+      const { list } = payload as any
 
-        slice.caseReducers.CHANGE_RANK_LIST(state, {
-          type: 'CHANGE_RANK_LIST',
-          payload: list,
-        })
-        slice.caseReducers.CHANGE_LOADING(state, {
-          type: 'CHANGE_LOADING',
-          payload: false,
-        })
-      }
-    )
+      slice.caseReducers.CHANGE_RANK_LIST(state, {
+        type: 'CHANGE_RANK_LIST',
+        payload: list,
+      })
+      slice.caseReducers.CHANGE_LOADING(state, {
+        type: 'CHANGE_LOADING',
+        payload: false,
+      })
+    })
     builder.addCase(getRankList.rejected, () => {})
   },
 })

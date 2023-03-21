@@ -8,7 +8,7 @@ import {
   getSingerListRequest,
 } from './../../../api/request'
 
-interface InitialState {
+interface State {
   category: string
   alpha: string
   singerList: any[]
@@ -18,7 +18,7 @@ interface InitialState {
   listOffset: number // 请求列表的偏移不是page，是个数
 }
 
-const initialState: InitialState = {
+const initialState: State = {
   category: '',
   alpha: '',
   singerList: [],
@@ -96,31 +96,28 @@ const slice = createSlice({
       state.pullDownLoading = action.payload
     },
   },
-  extraReducers: (builder: ActionReducerMapBuilder<InitialState>) => {
+  extraReducers: (builder: ActionReducerMapBuilder<State>) => {
     builder.addCase(getHotSingerList.pending, () => {})
-    builder.addCase(
-      getHotSingerList.fulfilled,
-      (state: InitialState, { payload }) => {
-        const { artists } = payload as any
+    builder.addCase(getHotSingerList.fulfilled, (state: State, { payload }) => {
+      const { artists } = payload as any
 
-        slice.caseReducers.CHANGE_SINGER_LIST(state, {
-          type: 'CHANGE_SINGER_LIST',
-          payload: artists,
-        })
-        slice.caseReducers.CHANGE_ENTER_LOADING(state, {
-          type: 'CHANGE_ENTER_LOADING',
-          payload: false,
-        })
-        slice.caseReducers.CHANGE_PULLUP_LOADING(state, {
-          type: 'CHANGE_PULLUP_LOADING',
-          payload: false,
-        })
-        slice.caseReducers.CHANGE_LIST_OFFSET(state, {
-          type: 'CHANGE_LIST_OFFSET',
-          payload: artists.length,
-        })
-      }
-    )
+      slice.caseReducers.CHANGE_SINGER_LIST(state, {
+        type: 'CHANGE_SINGER_LIST',
+        payload: artists,
+      })
+      slice.caseReducers.CHANGE_ENTER_LOADING(state, {
+        type: 'CHANGE_ENTER_LOADING',
+        payload: false,
+      })
+      slice.caseReducers.CHANGE_PULLUP_LOADING(state, {
+        type: 'CHANGE_PULLUP_LOADING',
+        payload: false,
+      })
+      slice.caseReducers.CHANGE_LIST_OFFSET(state, {
+        type: 'CHANGE_LIST_OFFSET',
+        payload: artists.length,
+      })
+    })
     builder.addCase(getHotSingerList.rejected, () => {
       console.log('热门歌手数据获取失败')
     })
@@ -128,7 +125,7 @@ const slice = createSlice({
     builder.addCase(refreshMoreHotSingerList.pending, () => {})
     builder.addCase(
       refreshMoreHotSingerList.fulfilled,
-      (state: InitialState, { payload }) => {
+      (state: State, { payload }) => {
         const { singerList } = state
         const { artists } = payload as any
 
@@ -153,29 +150,26 @@ const slice = createSlice({
     })
 
     builder.addCase(getSingerList.pending, () => {})
-    builder.addCase(
-      getSingerList.fulfilled,
-      (state: InitialState, { payload }) => {
-        const { artists } = payload as any
+    builder.addCase(getSingerList.fulfilled, (state: State, { payload }) => {
+      const { artists } = payload as any
 
-        slice.caseReducers.CHANGE_SINGER_LIST(state, {
-          type: 'CHANGE_SINGER_LIST',
-          payload: artists,
-        })
-        slice.caseReducers.CHANGE_ENTER_LOADING(state, {
-          type: 'CHANGE_ENTER_LOADING',
-          payload: false,
-        })
-        slice.caseReducers.CHANGE_PULLUP_LOADING(state, {
-          type: 'CHANGE_PULLUP_LOADING',
-          payload: false,
-        })
-        slice.caseReducers.CHANGE_LIST_OFFSET(state, {
-          type: 'CHANGE_LIST_OFFSET',
-          payload: artists.length,
-        })
-      }
-    )
+      slice.caseReducers.CHANGE_SINGER_LIST(state, {
+        type: 'CHANGE_SINGER_LIST',
+        payload: artists,
+      })
+      slice.caseReducers.CHANGE_ENTER_LOADING(state, {
+        type: 'CHANGE_ENTER_LOADING',
+        payload: false,
+      })
+      slice.caseReducers.CHANGE_PULLUP_LOADING(state, {
+        type: 'CHANGE_PULLUP_LOADING',
+        payload: false,
+      })
+      slice.caseReducers.CHANGE_LIST_OFFSET(state, {
+        type: 'CHANGE_LIST_OFFSET',
+        payload: artists.length,
+      })
+    })
     builder.addCase(getSingerList.rejected, () => {
       console.log('歌手数据获取失败')
     })
@@ -183,7 +177,7 @@ const slice = createSlice({
     builder.addCase(refreshMoreSingerList.pending, () => {})
     builder.addCase(
       refreshMoreSingerList.fulfilled,
-      (state: InitialState, { payload }) => {
+      (state: State, { payload }) => {
         const { singerList } = state
         const { artists } = payload as any
 
