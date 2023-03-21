@@ -134,11 +134,13 @@ const slice = createSlice({
   extraReducers: (builder: ActionReducerMapBuilder<State>) => {
     builder.addCase(getSongDetail.pending, () => {})
     builder.addCase(getSongDetail.fulfilled, (state: State, { payload }) => {
-      const { songs } = payload as any
+      const {
+        songs: [song],
+      } = payload as any
 
       slice.caseReducers.INSERT_SONG(state, {
         type: 'INSERT_SONG',
-        payload: songs[0],
+        payload: song,
       })
     })
     builder.addCase(getSongDetail.rejected, () => {})

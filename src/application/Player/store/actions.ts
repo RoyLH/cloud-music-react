@@ -59,8 +59,10 @@ export const deleteSong = (payload: any) => ({
 
 export const getSongDetail = (id: string) => {
   return (dispatch: (...args: any[]) => void) => {
-    getSongDetailRequest(id).then((data: any) => {
-      const song = data.songs[0]
+    getSongDetailRequest(id).then((res: any) => {
+      const {
+        songs: [song],
+      } = res
       dispatch(insertSong(song))
     })
   }

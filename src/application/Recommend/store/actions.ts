@@ -20,9 +20,10 @@ export const changeEnterLoading = (payload: any) => ({
 export const getBannerList = () => {
   return (dispatch: (...args: any[]) => void) => {
     getBannerRequest()
-      .then((data: any) => {
-        const action = changeBannerList(data.banners)
-        dispatch(action)
+      .then((res: any) => {
+        const { banners } = res
+
+        dispatch(changeBannerList(banners))
       })
       .catch(() => {
         console.log('轮播图数据传输错误')
@@ -33,8 +34,10 @@ export const getBannerList = () => {
 export const getRecommendList = () => {
   return (dispatch: (...args: any[]) => void) => {
     getRecommendListRequest()
-      .then((data: any) => {
-        dispatch(changeRecommendList(data.result))
+      .then((res: any) => {
+        const { result } = res
+
+        dispatch(changeRecommendList(result))
         dispatch(changeEnterLoading(false))
       })
       .catch(() => {

@@ -14,8 +14,9 @@ const changeLoading = (payload: any) => ({
 
 export const getRankList = () => {
   return (dispatch: (...args: any[]) => void) => {
-    getRankListRequest().then((data: any) => {
-      const list = data && data.list
+    getRankListRequest().then((res: any) => {
+      const { list } = res
+
       dispatch(changeRankList(list))
       dispatch(changeLoading(false))
     })

@@ -52,6 +52,7 @@ const slice = createSlice({
     builder.addCase(getBannerList.pending, () => {})
     builder.addCase(getBannerList.fulfilled, (state: State, { payload }) => {
       const { banners } = payload as any
+
       slice.caseReducers.CHANGE_BANNER(state, {
         type: 'CHANGE_BANNER',
         payload: banners,

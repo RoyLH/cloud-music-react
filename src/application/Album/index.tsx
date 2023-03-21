@@ -20,7 +20,7 @@ function Album(props: any) {
   const [isMarquee, setIsMarquee] = useState<boolean>(true)
 
   const musicNoteRef = useRef<any>(null)
-  const headerEl = useRef<HTMLDivElement | null>(null)
+  const headerRef = useRef<HTMLDivElement | null>(null)
 
   const navigate = useNavigate()
   const { id } = useParams()
@@ -38,7 +38,7 @@ function Album(props: any) {
     (pos: any) => {
       const minScrollY = -HEADER_HEIGHT
       const percent = Math.abs(pos.y / minScrollY)
-      const headerDom = headerEl.current!
+      const headerDom = headerRef.current!
       if (pos.y < minScrollY) {
         headerDom.style.backgroundColor = style['theme-color']
         headerDom.style.opacity = String(Math.min(1, (percent - 1) / 2))
@@ -78,7 +78,7 @@ function Album(props: any) {
     >
       <Container play={songsCount}>
         <Header
-          ref={headerEl}
+          ref={headerRef}
           title={title}
           handleClick={handleBack}
           isMarquee={isMarquee}

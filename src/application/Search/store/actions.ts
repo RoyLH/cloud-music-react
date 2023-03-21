@@ -28,23 +28,27 @@ export const changeEnterLoading = (payload: any) => ({
 
 export const getHotKeyWords = () => {
   return (dispatch: (...args: any[]) => void) => {
-    getHotKeyWordsRequest().then((data: any) => {
-      const list = data.result.hots
-      dispatch(changeHotKeyWords(list))
+    getHotKeyWordsRequest().then((res: any) => {
+      const {
+        result: { hots },
+      } = res
+      dispatch(changeHotKeyWords(hots))
     })
   }
 }
 export const getSuggestList = (query: string) => {
   return (dispatch: (...args: any[]) => void) => {
-    getSuggestListRequest(query).then((data: any) => {
-      if (!data) return
-      const res = data.result || []
-      dispatch(changeSuggestList(res))
+    getSuggestListRequest(query).then((res: any) => {
+      const { result: suggestList = [] } = res
+
+      dispatch(changeSuggestList(suggestList))
     })
-    getResultSongsListRequest(query).then((data: any) => {
-      if (!data) return
-      const res = data.result.songs || []
-      dispatch(changeResultSongs(res))
+    getResultSongsListRequest(query).then((res: any) => {
+      const {
+        result: { songs = [] },
+      } = res
+
+      dispatch(changeResultSongs(songs))
       dispatch(changeEnterLoading(false))
     })
   }

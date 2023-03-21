@@ -18,9 +18,11 @@ export const changeEnterLoading = (payload: any) => ({
 
 export const getSingerInfo = (id: string) => {
   return (dispatch: (...args: any[]) => void) => {
-    getSingerInfoRequest(id).then((data: any) => {
-      dispatch(changeArtist(data.artist))
-      dispatch(changeSongs(data.hotSongs))
+    getSingerInfoRequest(id).then((res: any) => {
+      const { artist, hotSongs } = res
+
+      dispatch(changeArtist(artist))
+      dispatch(changeSongs(hotSongs))
       dispatch(changeEnterLoading(false))
     })
   }
