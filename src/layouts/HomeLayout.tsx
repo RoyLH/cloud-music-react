@@ -1,21 +1,19 @@
+import Player from '@/application/Player'
+import PlayerRTK from '@/application/Player/index-rtk'
 import React from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
-import Player from '../application/Player'
-import PlayerRTK from '../application/Player/index-rtk'
+
 import { Tab, TabItem, Top } from './HomeLayout.style'
 
 const HomeLayout = (props: any) => {
   const { rtk } = props
-
   const navigate = useNavigate()
+  const alertTip = () => alert('用户中心正在开发中，敬请期待:)')
 
   return (
     <div>
       <Top>
-        <span
-          className="iconfont menu"
-          onClick={() => alert('用户中心正在开发中，敬请期待:)')}
-        >
+        <span className="iconfont menu" onClick={alertTip}>
           &#xe65c;
         </span>
         <span className="title">云音悦</span>

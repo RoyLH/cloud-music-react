@@ -1,3 +1,4 @@
+import HomeLayout from '@/layouts/HomeLayout'
 import React, {
   FunctionComponent,
   lazy,
@@ -6,8 +7,6 @@ import React, {
   Suspense,
 } from 'react'
 import { Navigate, useRoutes, type RouteObject } from 'react-router'
-import BlankLayout from '../layouts/BlankLayout'
-import HomeLayout from '../layouts/HomeLayout'
 
 const LazyImportComponent = (props: {
   fallback?: ReactNode
@@ -22,89 +21,79 @@ const LazyImportComponent = (props: {
 
 const { rtk } = process.env
 
-let RecommendComponent,
-  AlbumComponent,
-  SingersComponent,
-  SingerComponent,
-  RankComponent,
-  SearchComponent
+let Recommend, Album, Singers, Singer, Rank, Search
 
 if (rtk) {
-  RecommendComponent = lazy(() => import('../application/Recommend/index-rtk'))
-  AlbumComponent = lazy(() => import('../application/Album/index-rtk'))
-  SingersComponent = lazy(() => import('../application/Singers/index-rtk'))
-  SingerComponent = lazy(() => import('../application/Singer/index-rtk'))
-  RankComponent = lazy(() => import('../application/Rank/index-rtk'))
-  SearchComponent = lazy(() => import('../application/Search/index-rtk'))
+  Recommend = lazy(() => import('../application/Recommend/index-rtk'))
+  Album = lazy(() => import('../application/Album/index-rtk'))
+  Singers = lazy(() => import('../application/Singers/index-rtk'))
+  Singer = lazy(() => import('../application/Singer/index-rtk'))
+  Rank = lazy(() => import('../application/Rank/index-rtk'))
+  Search = lazy(() => import('../application/Search/index-rtk'))
 } else {
-  RecommendComponent = lazy(() => import('../application/Recommend'))
-  AlbumComponent = lazy(() => import('../application/Album'))
-  SingersComponent = lazy(() => import('../application/Singers'))
-  SingerComponent = lazy(() => import('../application/Singer'))
-  RankComponent = lazy(() => import('../application/Rank'))
-  SearchComponent = lazy(() => import('../application/Search'))
+  Recommend = lazy(() => import('../application/Recommend'))
+  Album = lazy(() => import('../application/Album'))
+  Singers = lazy(() => import('../application/Singers'))
+  Singer = lazy(() => import('../application/Singer'))
+  Rank = lazy(() => import('../application/Rank'))
+  Search = lazy(() => import('../application/Search'))
 }
 
 const routes: RouteObject[] = [
   {
-    element: <BlankLayout />,
+    path: '/',
+    element: <HomeLayout rtk={rtk} />,
     children: [
       {
-        path: '/',
-        element: <HomeLayout rtk={rtk} />,
+        index: true,
+        element: <Navigate to="/recommend" />,
+      },
+      {
+        path: 'recommend',
         children: [
           {
             index: true,
-            element: <Navigate to="/recommend" />,
+            element: <LazyImportComponent lazy={Recommend} />,
           },
           {
-            path: 'recommend',
-            children: [
-              {
-                index: true,
-                element: <LazyImportComponent lazy={RecommendComponent} />,
-              },
-              {
-                path: ':id',
-                element: <LazyImportComponent lazy={AlbumComponent} />,
-              },
-            ],
-          },
-          {
-            path: 'singers',
-            children: [
-              {
-                index: true,
-                element: <LazyImportComponent lazy={SingersComponent} />,
-              },
-              {
-                path: ':id',
-                element: <LazyImportComponent lazy={SingerComponent} />,
-              },
-            ],
-          },
-          {
-            path: 'rank',
-            children: [
-              {
-                index: true,
-                element: <LazyImportComponent lazy={RankComponent} />,
-              },
-              {
-                path: ':id',
-                element: <LazyImportComponent lazy={AlbumComponent} />,
-              },
-            ],
-          },
-          {
-            path: 'rank',
-            element: <LazyImportComponent lazy={AlbumComponent} />,
-          },
-          {
-            path: 'search',
-            element: <LazyImportComponent lazy={SearchComponent} />,
+            path: ':id',
+            element: <LazyImportComponent lazy={Album} />,
           },
         ],
+      },
+      {
+        path: 'singers',
+        children: [
+          {
+            index: true,
+            element: <LazyImportComponent lazy={Singers} />,
+          },
+          {
+            path: ':id',
+            element: <LazyImportComponent lazy={Singer} />,
+          },
+        ],
+      },
+      {
+        path: 'rank',
+        children: [
+          {
+            index: true,
+            element: <LazyImportComponent lazy={Rank} />,
+          },
+          {
+            path: ':id',
+            element: <LazyImportComponent lazy={Album} />,
+          },
+        ],
+      },
+      {
+        path: '/album/:id',
+        element: <LazyImportComponent lazy={Album} />,
+      },
+      {
+        path: 'search',
+        element: <LazyImportComponent lazy={Search} />,
       },
     ],
   },
