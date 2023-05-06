@@ -1,5 +1,5 @@
+import style from '@/assets/global-style'
 import styled from 'styled-components'
-import style from '../../assets/global-style'
 
 export const HeaderContainer = styled.div`
   position: fixed;
@@ -11,11 +11,13 @@ export const HeaderContainer = styled.div`
   display: flex;
   line-height: 40px;
   color: ${style['font-color-light']};
+
   .back {
     margin-right: 5px;
     font-size: 20px;
     width: 20px;
   }
+
   > h1 {
     font-size: ${style['font-size-l']};
     font-weight: 700;

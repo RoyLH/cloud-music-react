@@ -1,5 +1,5 @@
+import style from '@/assets/global-style'
 import styled from 'styled-components'
-import style from '../../assets/global-style'
 
 export const SearchBoxWrapper = styled.div`
   display: flex;
@@ -10,10 +10,12 @@ export const SearchBoxWrapper = styled.div`
   padding-right: 20px;
   height: 40px;
   background: ${style['theme-color']};
+
   .icon-back {
     font-size: 24px;
     color: ${style['font-color-light']};
   }
+
   .box {
     flex: 1;
     margin: 0 5px;
@@ -24,10 +26,12 @@ export const SearchBoxWrapper = styled.div`
     outline: none;
     border: none;
     border-bottom: 1px solid ${style['border-color']};
+
     &::placeholder {
       color: ${style['font-color-light']};
     }
   }
+
   .icon-delete {
     font-size: 16px;
     color: ${style['background-color']};

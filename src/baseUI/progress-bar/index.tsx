@@ -1,5 +1,5 @@
+import { prefixStyle } from '@/api/utils'
 import React, { useEffect, useRef, useState } from 'react'
-import { prefixStyle } from '../../api/utils'
 import { ProgressBarWrapper } from './style'
 
 function ProgressBar(props: any) {

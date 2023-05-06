@@ -1,10 +1,11 @@
+import style from '@/assets/global-style'
 import styled, { keyframes } from 'styled-components'
-import style from '../../assets/global-style'
 
 const loading = keyframes`
   0%, 100% {
     transform: scale(0.0);
   }
+  
   50% {
     transform: scale(1.0);
   }
@@ -24,6 +25,7 @@ export const LoadingWrapper = styled.div`
     background-color: ${style['theme-color']};
     animation: ${loading} 1.4s infinite ease-in;
   }
+
   > div:nth-child(2) {
     animation-delay: -0.7s;
   }

@@ -1,5 +1,5 @@
+import { debounce } from '@/api/utils'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
-import { debounce } from '../../api/utils'
 import { SearchBoxWrapper } from './style'
 
 const SearchBox = (props: any) => {

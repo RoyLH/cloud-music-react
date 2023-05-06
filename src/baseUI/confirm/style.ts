@@ -1,10 +1,11 @@
+import style from '@/assets/global-style'
 import styled, { keyframes } from 'styled-components'
-import style from '../../assets/global-style'
 
 const confirmFadeIn = keyframes`
   0%{
     opacity: 0;
   }
+  
   100%{
     opacity: 1;
   }
@@ -13,9 +14,11 @@ const confirmZoom = keyframes`
   0%{
     transform: scale(0);
   }
+
   50%{
     transform: scale(1.1);
   }
+  
   100%{
     transform: scale(1);
   }
@@ -29,9 +32,11 @@ export const ConfirmWrapper = styled.div`
   bottom: 0;
   z-index: 1000;
   background: ${style['background-color-shadow']};
+
   &.confirm-fade-enter-active {
     animation: ${confirmFadeIn} 0.3s;
-    .confirm_content {
+
+    .confirm-content {
       animation: ${confirmZoom} 0.3s;
     }
   }
@@ -41,10 +46,12 @@ export const ConfirmWrapper = styled.div`
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
     z-index: 100;
-    .confirm_content {
+
+    .confirm-content {
       width: 270px;
       border-radius: 13px;
       background: ${style['highlight-background-color']};
+
       .text {
         padding: 19px 15px;
         line-height: 22px;
@@ -52,12 +59,14 @@ export const ConfirmWrapper = styled.div`
         font-size: ${style['font-size-l']};
         color: ${style['font-color-desc-v2']};
       }
+
       .operate {
         display: flex;
         align-items: center;
         text-align: center;
         font-size: ${style['font-size-l']};
-        .operate_btn {
+
+        .operate-btn {
           flex: 1;
           line-height: 22px;
           padding: 10px 0;

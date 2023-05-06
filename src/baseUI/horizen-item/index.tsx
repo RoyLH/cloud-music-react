@@ -1,6 +1,6 @@
+import Scroll from '@/baseUI/scroll/index'
 import PropTypes from 'prop-types'
 import React, { memo, useEffect, useRef, useState } from 'react'
-import Scroll from '../scroll/index'
 import { List, ListItem } from './style'
 
 function Horizen(props: any) {

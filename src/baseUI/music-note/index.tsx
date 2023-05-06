@@ -1,10 +1,10 @@
+import { prefixStyle } from '@/api/utils'
 import React, {
   forwardRef,
   useEffect,
   useImperativeHandle,
   useRef,
 } from 'react'
-import { prefixStyle } from '../../api/utils'
 import { Container } from './style'
 
 const MusicNote = forwardRef((props, ref) => {
@@ -15,7 +15,7 @@ const MusicNote = forwardRef((props, ref) => {
   const transform = prefixStyle('transform')
 
   const createNode = (txt: string) => {
-    const template = `<div class='icon_wrapper'>${txt}</div>`
+    const template = `<div class='icon-wrapper'>${txt}</div>`
     const tempNode = document.createElement('div')
     tempNode.innerHTML = template
     return tempNode.firstChild

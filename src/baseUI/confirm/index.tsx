@@ -26,14 +26,14 @@ const Confirm = forwardRef((props: any, ref) => {
         onClick={e => e.stopPropagation()}
       >
         <div>
-          <div className="confirm_content">
+          <div className="confirm-content">
             <p className="text">{text}</p>
             <div className="operate">
-              <div className="operate_btn left" onClick={() => setShow(false)}>
+              <div className="operate-btn left" onClick={() => setShow(false)}>
                 {cancelBtnText}
               </div>
               <div
-                className="operate_btn"
+                className="operate-btn"
                 onClick={() => {
                   setShow(false)
                   handleConfirm()

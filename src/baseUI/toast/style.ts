@@ -1,5 +1,5 @@
+import style from '@/assets/global-style'
 import styled from 'styled-components'
-import style from '../../assets/global-style'
 
 export const ToastWrapper = styled.div`
   position: fixed;
@@ -8,20 +8,24 @@ export const ToastWrapper = styled.div`
   width: 100%;
   height: 50px;
   /* background: ${style['highlight-background-color']}; */
+
   &.drop-enter {
     opacity: 0;
     transform: translate3d(0, 100%, 0);
   }
+
   &.drop-enter-active {
     opacity: 1;
     transition: all 0.3s;
     transform: translate3d(0, 0, 0);
   }
+
   &.drop-exit-active {
     opacity: 0;
     transition: all 0.3s;
     transform: translate3d(0, 100%, 0);
   }
+
   .text {
     line-height: 50px;
     text-align: center;

@@ -1,3 +1,6 @@
+import { debounce } from '@/api/utils'
+import Loading2 from '@/baseUI/loading-v2/index'
+import Loading from '@/baseUI/loading/index'
 import BScroll from 'better-scroll'
 import PropTypes from 'prop-types'
 import React, {
@@ -8,9 +11,6 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import { debounce } from '../../api/utils'
-import Loading2 from '../loading-v2/index'
-import Loading from '../loading/index'
 import { PullDownLoading, PullUpLoading, ScrollContainer } from './style'
 
 // 下为问题代码，以此为鉴
@@ -59,6 +59,7 @@ import { PullDownLoading, PullUpLoading, ScrollContainer } from './style'
 //   }
 //   // eslint-disable-next-line
 // }, []);
+
 const Scroll = forwardRef((props: any, ref) => {
   const [bScroll, setBScroll] = useState<BScroll | null>(null)
 
@@ -144,6 +145,14 @@ const Scroll = forwardRef((props: any, ref) => {
     }
   })
 
+  const PullUpdisplayStyle = pullUpLoading
+    ? { display: '' }
+    : { display: 'none' }
+
+  const PullDowndisplayStyle = pullDownLoading
+    ? { display: '' }
+    : { display: 'none' }
+
   useImperativeHandle(ref, () => ({
     refresh() {
       if (bScroll) {
@@ -157,12 +166,7 @@ const Scroll = forwardRef((props: any, ref) => {
       }
     },
   }))
-  const PullUpdisplayStyle = pullUpLoading
-    ? { display: '' }
-    : { display: 'none' }
-  const PullDowndisplayStyle = pullDownLoading
-    ? { display: '' }
-    : { display: 'none' }
+
   return (
     <ScrollContainer ref={scrollContaninerRef}>
       {props.children}
