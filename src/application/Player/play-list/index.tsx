@@ -1,16 +1,16 @@
+import { playMode } from '@/api/config'
+import { findIndex, getName, prefixStyle, shuffle } from '@/api/utils'
+import Confirm from '@/baseUI/confirm'
+import Scroll from '@/baseUI/scroll'
 import React, { useCallback, useRef, useState } from 'react'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
-import { playMode } from '../../../api/config'
-import { findIndex, getName, prefixStyle, shuffle } from '../../../api/utils'
-import Confirm from '../../../baseUI/confirm'
-import Scroll from '../../../baseUI/scroll'
 import * as actions from '../store/actions'
 import {
-    ListContent,
-    ListHeader,
-    PlayListWrapper,
-    ScrollWrapper,
+  ListContent,
+  ListHeader,
+  PlayListWrapper,
+  ScrollWrapper,
 } from './style'
 
 function PlayList(props: any) {
