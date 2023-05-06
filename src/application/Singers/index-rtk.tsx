@@ -7,17 +7,17 @@ import Loading from '../../baseUI/loading/index'
 import Scroll from '../../baseUI/scroll/index'
 import { useAppDispatch, useAppSelector } from '../../slice'
 import singersSlice, {
-    getHotSingerList,
-    getSingerList,
-    refreshMoreHotSingerList,
-    refreshMoreSingerList,
+  getHotSingerList,
+  getSingerList,
+  refreshMoreHotSingerList,
+  refreshMoreSingerList,
 } from './slice'
 import {
-    EnterLoading,
-    List,
-    ListContainer,
-    ListItem,
-    NavContainer,
+  EnterLoading,
+  List,
+  ListContainer,
+  ListItem,
+  NavContainer,
 } from './style'
 
 function Singers(props: any) {
