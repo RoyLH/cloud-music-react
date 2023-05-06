@@ -51,7 +51,7 @@ export const TopDesc = styled.div`
     filter: blur(20px);
     transform: scale(1.5);
   }
-  .img_wrapper {
+  .img-wrapper {
     width: 120px;
     height: 120px;
     position: relative;
@@ -63,7 +63,7 @@ export const TopDesc = styled.div`
       border-radius: 3px;
       background: linear-gradient(hsla(0, 0%, 43%, 0.4), hsla(0, 0%, 100%, 0));
     }
-    .play_count {
+    .play-count {
       position: absolute;
       right: 2px;
       top: 2px;
@@ -80,7 +80,7 @@ export const TopDesc = styled.div`
       border-radius: 3px;
     }
   }
-  .desc_wrapper {
+  .desc-wrapper {
     flex: 1;
     display: flex;
     flex-direction: column;

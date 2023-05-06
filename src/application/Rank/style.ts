@@ -35,7 +35,7 @@ export const ListItem = styled.li`
   display: ${(props: { tracks?: any }) => (props.tracks.length ? 'flex' : '')};
   padding: 3px 0;
   border-bottom: 1px solid ${style['border-color']};
-  .img_wrapper {
+  .img-wrapper {
     width: ${(props: { tracks?: any }) =>
       props.tracks.length ? '27vw' : '32vw'};
     height: ${(props: { tracks?: any }) =>

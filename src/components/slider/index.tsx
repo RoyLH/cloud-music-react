@@ -7,8 +7,8 @@ import { SliderContainer } from './style'
 Swiper.use([Autoplay, Navigation, Pagination])
 
 function Slider(props: any) {
-  const [sliderSwiper, setSliderSwiper] = useState<Swiper | null>(null)
   const { bannerList } = props
+  const [sliderSwiper, setSliderSwiper] = useState<Swiper | null>(null)
 
   useEffect(() => {
     if (bannerList.length && !sliderSwiper) {
@@ -27,6 +27,7 @@ function Slider(props: any) {
       setSliderSwiper(sliderSwiper)
     }
   }, [bannerList.length, sliderSwiper])
+
   return (
     <SliderContainer>
       <div className="before"></div>

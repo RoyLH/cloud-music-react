@@ -8,11 +8,11 @@ import Loading from '../../baseUI/loading/index'
 import Scroll from '../../baseUI/scroll/index'
 import * as actions from './store/actions'
 import {
-  EnterLoading,
-  List,
-  ListContainer,
-  ListItem,
-  NavContainer,
+    EnterLoading,
+    List,
+    ListContainer,
+    ListItem,
+    NavContainer,
 } from './style'
 
 function Singers(props: any) {
@@ -80,7 +80,7 @@ function Singers(props: any) {
               key={item.accountId + '' + index}
               onClick={() => enterDetail(item.id)}
             >
-              <div className="img_wrapper">
+              <div className="img-wrapper">
                 <LazyLoad
                   placeholder={
                     <img

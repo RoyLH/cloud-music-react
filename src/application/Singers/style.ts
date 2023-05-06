@@ -40,7 +40,7 @@ export const ListItem = styled.div`
   padding: 5px 0;
   align-items: center;
   border-bottom: 1px solid ${style['border-color']};
-  .img_wrapper {
+  .img-wrapper {
     margin-right: 20px;
     img {
       border-radius: 3px;

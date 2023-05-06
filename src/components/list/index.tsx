@@ -9,6 +9,7 @@ function RecommendList(props: any) {
   const enterDetail = (id: string) => {
     navigate(`/recommend/${id}`)
   }
+
   return (
     <ListWrapper>
       <h1 className="title">推荐歌单</h1>
@@ -19,7 +20,7 @@ function RecommendList(props: any) {
               key={item.id + index}
               onClick={() => enterDetail(item.id)}
             >
-              <div className="img_wrapper">
+              <div className="img-wrapper">
                 <div className="decorate"></div>
                 <LazyLoad
                   placeholder={
@@ -38,7 +39,7 @@ function RecommendList(props: any) {
                     alt="music"
                   />
                 </LazyLoad>
-                <div className="play_count">
+                <div className="play-count">
                   <i className="iconfont play">&#xe885;</i>
                   <span className="count">
                     {Math.floor(item.playCount / 10000)}万

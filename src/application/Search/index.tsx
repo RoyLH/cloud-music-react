@@ -99,7 +99,7 @@ const Search = (props: any) => {
               key={item.accountId + '' + index}
               onClick={() => navigate(`/singers/${item.id}`)}
             >
-              <div className="img_wrapper">
+              <div className="img-wrapper">
                 <LazyLoad
                   placeholder={
                     <img
@@ -138,7 +138,7 @@ const Search = (props: any) => {
               key={item.accountId + '' + index}
               onClick={() => navigate(`/album/${item.id}`)}
             >
-              <div className="img_wrapper">
+              <div className="img-wrapper">
                 <LazyLoad
                   placeholder={
                     <img

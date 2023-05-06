@@ -1,6 +1,7 @@
 const extendClick = () => {
   return `
     position: relative;
+    
     &:before{
       content: '';
       position: absolute;

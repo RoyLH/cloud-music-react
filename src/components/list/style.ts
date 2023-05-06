@@ -1,8 +1,9 @@
+import style from '@/assets/global-style'
 import styled from 'styled-components'
-import style from '../../assets/global-style'
 
 export const ListWrapper = styled.div`
   max-width: 100%;
+
   .title {
     font-weight: 700;
     padding-left: 6px;
@@ -10,12 +11,14 @@ export const ListWrapper = styled.div`
     line-height: 60px;
   }
 `
+
 export const List = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+
   &:after {
     content: '';
     flex: auto;
@@ -25,6 +28,7 @@ export const List = styled.div`
 export const ListItem = styled.div`
   position: relative;
   width: 32%;
+
   .decorate {
     z-index: 1;
     position: absolute;
@@ -34,11 +38,13 @@ export const ListItem = styled.div`
     border-radius: 3px;
     background: linear-gradient(hsla(0, 0%, 43%, 0.4), hsla(0, 0%, 100%, 0));
   }
-  .img_wrapper {
+
+  .img-wrapper {
     position: relative;
     height: 0;
     padding-bottom: 100%;
-    .play_count {
+
+    .play-count {
       z-index: 1;
       position: absolute;
       right: 2px;
@@ -46,10 +52,12 @@ export const ListItem = styled.div`
       font-size: ${style['font-size-s']};
       line-height: 15px;
       color: ${style['font-color-light']};
+
       .play {
         vertical-align: top;
       }
     }
+
     img {
       position: absolute;
       width: 100%;
@@ -57,6 +65,7 @@ export const ListItem = styled.div`
       border-radius: 3px;
     }
   }
+
   .desc {
     overflow: hidden;
     margin-top: 2px;

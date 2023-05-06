@@ -1,5 +1,5 @@
+import style from '@/assets/global-style'
 import styled from 'styled-components'
-import style from '../../assets/global-style'
 
 export const SliderContainer = styled.div`
   position: relative;
@@ -8,6 +8,7 @@ export const SliderContainer = styled.div`
   height: 100%;
   margin: auto;
   background: white;
+
   .before {
     position: absolute;
     top: -300px;
@@ -16,6 +17,7 @@ export const SliderContainer = styled.div`
     background: ${style['theme-color']};
     z-index: 1;
   }
+
   .slider-container {
     position: relative;
     width: 98%;
@@ -23,12 +25,14 @@ export const SliderContainer = styled.div`
     overflow: hidden;
     margin: auto;
     border-radius: 6px;
+
     .slider-nav {
       position: absolute;
       display: block;
       width: 100%;
       height: 100%;
     }
+
     .swiper-pagination-bullet-active {
       background: ${style['theme-color']};
     }

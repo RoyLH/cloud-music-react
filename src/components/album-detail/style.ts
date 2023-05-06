@@ -1,5 +1,5 @@
+import style from '@/assets/global-style'
 import styled from 'styled-components'
-import style from '../../assets/global-style'
 
 export const TopDesc = styled.div`
   background-size: 100%;
@@ -13,6 +13,7 @@ export const TopDesc = styled.div`
   width: 100%;
   height: 275px;
   position: relative;
+
   .background {
     z-index: -1;
     background: url(${(props: { background?: any }) => props.background}) left
@@ -24,6 +25,7 @@ export const TopDesc = styled.div`
     width: 100%;
     height: 100%;
     filter: blur(20px);
+
     .filter {
       position: absolute;
       z-index: 10;
@@ -34,10 +36,11 @@ export const TopDesc = styled.div`
       background: rgba(7, 17, 27, 0.2);
     }
   }
-  .img_wrapper {
+  .img-wrapper {
     width: 120px;
     height: 120px;
     position: relative;
+
     .decorate {
       position: absolute;
       top: 0;
@@ -46,7 +49,8 @@ export const TopDesc = styled.div`
       border-radius: 3px;
       background: linear-gradient(hsla(0, 0%, 43%, 0.4), hsla(0, 0%, 100%, 0));
     }
-    .play_count {
+
+    .play-count {
       position: absolute;
       right: 2px;
       top: 2px;
@@ -57,19 +61,21 @@ export const TopDesc = styled.div`
         vertical-align: top;
       }
     }
+
     img {
       width: 120px;
       height: 120px;
       border-radius: 3px;
     }
   }
-  .desc_wrapper {
+  .desc-wrapper {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: 120px;
     padding: 0 10px;
+
     .title {
       max-height: 70px;
       overflow: hidden;
@@ -79,8 +85,10 @@ export const TopDesc = styled.div`
       line-height: 1.5;
       font-size: ${style['font-size-l']};
     }
+
     .person {
       display: flex;
+
       .avatar {
         width: 20px;
         height: 20px;
@@ -91,6 +99,7 @@ export const TopDesc = styled.div`
           border-radius: 50%;
         }
       }
+
       .name {
         line-height: 20px;
         font-size: ${style['font-size-m']};
@@ -107,6 +116,7 @@ export const Menu = styled.div`
   box-sizing: border-box;
   padding: 0 30px 20px 30px;
   margin: -100px 0 0 0;
+
   > div {
     display: flex;
     flex-direction: column;
@@ -117,6 +127,7 @@ export const Menu = styled.div`
     color: ${style['font-color-light']};
     z-index: 1000;
     font-weight: 500;
+
     .iconfont {
       font-size: 20px;
     }
