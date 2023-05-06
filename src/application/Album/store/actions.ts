@@ -1,5 +1,5 @@
+import { getAlbumDetailRequest } from '@/api/request'
 import { fromJS } from 'immutable'
-import { getAlbumDetailRequest } from '../../../api/request'
 import * as actionTypes from './constants'
 
 const changeCurrentAlbum = (payload: any) => ({

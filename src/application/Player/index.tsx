@@ -1,13 +1,13 @@
+import { playMode } from '@/api/config'
+import Lyric from '@/api/lyric-parser'
+import { getLyricRequest } from '@/api/request'
+import { findIndex, getSongUrl, isEmptyObject, shuffle } from '@/api/utils'
+import Toast from '@/baseUI/toast'
 import React, { useEffect, useRef, useState } from 'react'
 import { connect } from 'react-redux'
-import { playMode } from '../../api/config'
-import Lyric from '../../api/lyric-parser'
-import { getLyricRequest } from '../../api/request'
-import { findIndex, getSongUrl, isEmptyObject, shuffle } from '../../api/utils'
-import Toast from '../../baseUI/toast/index'
 import MiniPlayer from './mini-player'
 import NormalPlayer from './normal-player'
-import PlayList from './play-list/index'
+import PlayList from './play-list'
 import * as actions from './store/actions'
 
 function Player(props: any) {
@@ -106,6 +106,7 @@ function Player(props: any) {
     setTimeout(() => {
       songReady.current = true
     }, 3000)
+
     getLyricRequest(id)
       .then((data: any) => {
         lyric = data.lrc && data.lrc.lyric

@@ -1,9 +1,9 @@
-import { fromJS } from 'immutable'
 import {
   getHotKeyWordsRequest,
   getResultSongsListRequest,
   getSuggestListRequest,
-} from '../../../api/request'
+} from '@/api/request'
+import { fromJS } from 'immutable'
 import * as actionTypes from './constants'
 
 const changeHotKeyWords = (payload: any) => ({

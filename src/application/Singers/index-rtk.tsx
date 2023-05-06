@@ -1,24 +1,19 @@
+import { alphaTypes, categoryTypes } from '@/api/config'
+import EnterLoading from '@/baseUI/enter-loading'
+import Horizen from '@/baseUI/horizen-item'
+import Loading from '@/baseUI/loading'
+import Scroll from '@/baseUI/scroll'
+import { useAppDispatch, useAppSelector } from '@/slice'
 import React, { useEffect, useRef } from 'react'
 import LazyLoad, { forceCheck } from 'react-lazyload'
 import { Outlet, useNavigate } from 'react-router-dom'
-import { alphaTypes, categoryTypes } from '../../api/config'
-import Horizen from '../../baseUI/horizen-item/index'
-import Loading from '../../baseUI/loading/index'
-import Scroll from '../../baseUI/scroll/index'
-import { useAppDispatch, useAppSelector } from '../../slice'
 import singersSlice, {
   getHotSingerList,
   getSingerList,
   refreshMoreHotSingerList,
   refreshMoreSingerList,
 } from './slice'
-import {
-  EnterLoading,
-  List,
-  ListContainer,
-  ListItem,
-  NavContainer,
-} from './style'
+import { List, ListContainer, ListItem, NavContainer } from './style'
 
 function Singers(props: any) {
   const scrollRef = useRef<any>(null)
@@ -61,7 +56,7 @@ function Singers(props: any) {
       dispatch(refreshMoreSingerList())
     }
   }
-  //顶部下拉刷新
+  // 顶部下拉刷新
   const pullDownRefresh = (category: string, alpha: string) => {
     dispatch(singersSlice.actions.CHANGE_PULLDOWN_LOADING(true))
     dispatch(singersSlice.actions.CHANGE_LIST_OFFSET(0))

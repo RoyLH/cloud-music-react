@@ -1,12 +1,12 @@
+import EnterLoading from '@/baseUI/enter-loading'
+import Loading from '@/baseUI/loading-v2'
+import Scroll from '@/baseUI/scroll'
+import RecommendList from '@/components/list'
+import Slider from '@/components/slider'
+import { useAppDispatch, useAppSelector } from '@/slice'
 import React, { useEffect } from 'react'
 import { forceCheck } from 'react-lazyload'
 import { Outlet } from 'react-router-dom'
-import Loading from '../../baseUI/loading-v2'
-import Scroll from '../../baseUI/scroll'
-import RecommendList from '../../components/list'
-import Slider from '../../components/slider'
-import { useAppDispatch, useAppSelector } from '../../slice'
-import { EnterLoading } from '../Singers/style'
 import { getBannerList, getRecommendList } from './slice'
 import { Content } from './style'
 
@@ -28,10 +28,10 @@ function Recommend(props: any) {
   }
 
   useEffect(() => {
-    if (!bannerList.size) {
+    if (!bannerList.length) {
       getBannerDataDispatch()
     }
-    if (!recommendList.size) {
+    if (!recommendList.length) {
       getRecommendListDataDispatch()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

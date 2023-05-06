@@ -1,5 +1,5 @@
+import style from '@/assets/global-style'
 import styled from 'styled-components'
-import style from '../../assets/global-style'
 
 export const Container = styled.div`
   position: fixed;
@@ -12,18 +12,22 @@ export const Container = styled.div`
   overflow: hidden;
   background: #f2f3f4;
   transform-origin: right bottom;
+
   &.fly-enter,
   &.fly-appear {
     transform: rotateZ(30deg) translate3d(100%, 0, 0);
   }
+
   &.fly-enter-active,
   &.fly-appear-active {
     transition: transform 0.3s;
     transform: rotateZ(0deg) translate3d(0, 0, 0);
   }
+
   &.fly-exit {
     transform: rotateZ(0deg) translate3d(0, 0, 0);
   }
+
   &.fly-exit-active {
     transition: transform 0.3s;
     transform: rotateZ(30deg) translate3d(100%, 0, 0);
@@ -39,6 +43,7 @@ export const ImgWrapper = styled.div`
   background: url(${(props: { bgUrl: any }) => props.bgUrl});
   background-size: cover;
   z-index: 50;
+
   .filter {
     position: absolute;
     top: 0;
@@ -65,12 +70,14 @@ export const CollectButton = styled.div`
   text-align: center;
   font-size: 0;
   line-height: 40px;
+
   .iconfont {
     display: inline-block;
     margin-right: 10px;
     font-size: 12px;
     vertical-align: 1px;
   }
+
   .text {
     display: inline-block;
     font-size: 14px;
@@ -85,6 +92,7 @@ export const SongListWrapper = styled.div`
   left: 0;
   bottom: ${(props: { play?: any }) => (props.play > 0 ? '60px' : 0)};
   right: 0;
+
   > div {
     position: absolute;
     left: 0;

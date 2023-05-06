@@ -3,10 +3,12 @@ import styled from 'styled-components'
 export const Container = styled.div`
   padding-top: 30%;
   width: 100%;
+
   > p.tips {
     color: #9d9d9d;
     font-size: 14px;
   }
+
   > p.input {
     font-weight: bold;
     font-size: 22px;
@@ -19,6 +21,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     input {
       border: none;
       outline: none;
@@ -30,6 +33,7 @@ export const Container = styled.div`
       line-height: 30px;
     }
   }
+
   hr {
     margin: 0 10%;
     margin-top: 10px;
@@ -37,6 +41,7 @@ export const Container = styled.div`
     height: 1px;
     border: none;
   }
+
   .LoginBtn {
     display: block;
     cursor: pointer;
@@ -49,6 +54,7 @@ export const Container = styled.div`
     color: #fff;
     line-height: 40px;
     margin-top: 30px;
+
     &.disabled {
       opacity: 0.3;
     }
@@ -63,6 +69,7 @@ export const Header = styled.div`
   line-height: 40px;
   text-align: center;
   font-size: 18px;
+
   > img {
     position: absolute;
     height: 20px;

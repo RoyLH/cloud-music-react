@@ -1,5 +1,5 @@
+import { trimPhone } from '@/api/utils'
 import React, { useCallback, useState } from 'react'
-import { trimPhone } from '../../../../api/utils'
 import StepOne from './step-one'
 import StepTwo from './step-two'
 import { Container, Header } from './style'
@@ -39,11 +39,7 @@ const PhoneForm = (props: any) => {
   return (
     <Container>
       <Header>
-        <img
-          src={require('../../../../assets/back.svg')}
-          alt=""
-          onClick={onClickBack}
-        />
+        <img src={require('@/assets/back.svg')} alt="" onClick={onClickBack} />
         手机号登录
       </Header>
       {!sentStatus ? (

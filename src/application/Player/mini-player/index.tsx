@@ -1,7 +1,7 @@
+import { getName } from '@/api/utils'
+import ProgressCircle from '@/baseUI/progress-circle'
 import React, { useCallback, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
-import { getName } from '../../../api/utils'
-import ProgressCircle from '../../../baseUI/progress-circle'
 import { MiniPlayerContainer } from './style'
 
 function MiniPlayer(props: any) {
@@ -37,7 +37,7 @@ function MiniPlayer(props: any) {
         onClick={() => setFullScreen(true)}
       >
         <div className="icon">
-          <div className="imgWrapper" ref={miniWrapperRef}>
+          <div className="img-wrapper" ref={miniWrapperRef}>
             <img
               className={`play ${playing ? '' : 'pause'}`}
               ref={miniImageRef}

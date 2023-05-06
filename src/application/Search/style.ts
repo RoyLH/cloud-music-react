@@ -1,5 +1,5 @@
+import style from '@/assets/global-style'
 import styled from 'styled-components'
-import style from '../../assets/global-style'
 
 export const Container = styled.div`
   position: fixed;
@@ -12,21 +12,25 @@ export const Container = styled.div`
   overflow: hidden;
   background: #f2f3f4;
   transform-origin: right bottom;
+
   &.fly-enter,
   &.fly-appear {
     opacity: 0;
     transform: translate3d(100%, 0, 0);
   }
+
   &.fly-enter-active,
   &.fly-appear-active {
     opacity: 1;
     transition: all 0.3s;
     transform: translate3d(0, 0, 0);
   }
+
   &.fly-exit {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
+
   &.fly-exit-active {
     opacity: 0;
     transition: all 0.3s;
@@ -44,12 +48,14 @@ export const ShortcutWrapper = styled.div`
 
 export const HotKey = styled.div`
   margin: 0 20px 20px 20px;
+
   .title {
     padding-top: 35px;
     margin-bottom: 20px;
     font-size: ${style['font-size-m']};
     color: ${style['font-color-desc-v2']};
   }
+
   .item {
     display: inline-block;
     padding: 5px 10px;
@@ -64,39 +70,46 @@ export const HotKey = styled.div`
 export const SearchHistory = styled.div`
   position: relative;
   margin: 0 20px;
+
   .title {
     display: flex;
     align-items: center;
     height: 40px;
     font-size: ${style['font-size-m']};
     color: ${style['font-color-desc-v2']};
+
     .text {
       flex: 1;
     }
+
     .clear {
       ${style.extendClick()}
+
       .icon-clear {
         font-size: ${style['font-size-m']};
         color: ${style['font-color-desc']};
       }
     }
   }
-  .history_item {
+  .history-item {
     display: flex;
     align-items: center;
     height: 40px;
     overflow: hidden;
     color: ${style['font-color-desc-v2']};
     border-bottom: 1px solid ${style['border-color']};
+
     .text {
       flex: 1;
       font-size: ${style['font-size-s']};
       color: ${style['font-color-desc']};
     }
+
     .icon {
       ${style.extendClick()}
       font-size: ${style['font-size-s']};
-      .icon_delete {
+
+      .icon-delete {
         color: ${style['font-color-desc']};
       }
     }

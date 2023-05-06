@@ -10,10 +10,12 @@ export const Container = styled.div`
   background: #e82101;
   flex-direction: column;
   align-items: center;
+
   &.push-out-enter {
     opacity: 0.5;
     transform: translate3d(-100%, 0, 0);
   }
+
   &.push-out-enter-active,
   &.push-out-enter-done {
     opacity: 1;
@@ -25,6 +27,7 @@ export const Container = styled.div`
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
+
   &.push-out-exit-active,
   &.push-out-exit-done {
     transform: translate3d(-100%, 0, 0);
@@ -41,18 +44,22 @@ export const LoginContainer = styled.div`
   height: 100%;
   width: 100%;
   z-index: -1;
+
   &.push-in-enter {
     transform: translate3d(100%, 0, 0);
   }
+
   &.push-in-enter-active,
   &.push-in-enter-done {
     opacity: 1;
     transition: all 500ms;
     transform: translate3d(0, 0, 0);
   }
+
   &.push-in-exit {
     opacity: 0;
   }
+
   &.push-in-exit-active {
     opacity: 1;
     transition: all 500ms;
@@ -63,10 +70,12 @@ export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   flex: 3;
+
   &.push-in-exit-done {
     opacity: 1;
     transition: opacity 200ms;
   }
+
   > div {
     width: 100px;
     height: 100px;
@@ -76,6 +85,7 @@ export const LogoContainer = styled.div`
     align-items: center;
     justify-content: center;
     position: relative;
+
     &:after,
     &:before {
       content: '';
@@ -91,9 +101,11 @@ export const LogoContainer = styled.div`
       animation-direction: normal;
       animation-timing-function: linear;
     }
+
     &:after {
       animation-delay: 0s;
     }
+
     &:before {
       animation-delay: 1s;
     }
@@ -114,7 +126,7 @@ export const LogoContainer = styled.div`
   }
 `
 export const LogoImg = styled.img.attrs({
-  src: require('../../../assets/netease-logo-white.svg'),
+  src: require('@/assets/netease-logo-white.svg'),
 })`
   width: 70px;
 `

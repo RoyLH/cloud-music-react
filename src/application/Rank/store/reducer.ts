@@ -3,7 +3,7 @@ import * as actionTypes from './constants'
 
 interface State {
   rankList: any[]
-  loading: true
+  loading: boolean
 }
 
 const defaultState: FromJS<State> = fromJS({

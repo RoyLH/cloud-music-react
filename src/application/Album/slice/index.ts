@@ -1,9 +1,9 @@
+import { getAlbumDetailRequest } from '@/api/request'
 import {
   ActionReducerMapBuilder,
   createAsyncThunk,
   createSlice,
 } from '@reduxjs/toolkit'
-import { getAlbumDetailRequest } from './../../../api/request'
 
 interface State {
   currentAlbum: any

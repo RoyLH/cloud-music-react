@@ -1,8 +1,5 @@
+import { getHotSingerListRequest, getSingerListRequest } from '@/api/request'
 import { fromJS } from 'immutable'
-import {
-  getHotSingerListRequest,
-  getSingerListRequest,
-} from '../../../api/request'
 import * as actionTypes from './constants'
 
 export const changeCategory = (payload: any) => ({

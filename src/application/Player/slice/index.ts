@@ -1,11 +1,11 @@
+import { playMode } from '@/api/config'
+import { getSongDetailRequest } from '@/api/request'
+import { findIndex } from '@/api/utils'
 import {
   ActionReducerMapBuilder,
   createAsyncThunk,
   createSlice,
 } from '@reduxjs/toolkit'
-import { playMode } from '../../../api/config'
-import { findIndex } from '../../../api/utils'
-import { getSongDetailRequest } from './../../../api/request'
 
 interface State {
   fullScreen: boolean

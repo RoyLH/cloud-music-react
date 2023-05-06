@@ -1,5 +1,5 @@
+import { getRankListRequest } from '@/api/request'
 import { fromJS } from 'immutable'
-import { getRankListRequest } from '../../../api/request'
 import * as actionTypes from './constants'
 
 const changeRankList = (payload: any) => ({

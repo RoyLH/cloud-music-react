@@ -1,12 +1,9 @@
+import { getHotSingerListRequest, getSingerListRequest } from '@/api/request'
 import {
   ActionReducerMapBuilder,
   createAsyncThunk,
   createSlice,
 } from '@reduxjs/toolkit'
-import {
-  getHotSingerListRequest,
-  getSingerListRequest,
-} from './../../../api/request'
 
 interface State {
   category: string

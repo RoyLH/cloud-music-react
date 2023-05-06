@@ -1,9 +1,9 @@
+import { getRankListRequest } from '@/api/request'
 import {
   ActionReducerMapBuilder,
   createAsyncThunk,
   createSlice,
 } from '@reduxjs/toolkit'
-import { getRankListRequest } from './../../../api/request'
 
 interface State {
   rankList: any[]

@@ -1,9 +1,9 @@
+import { getSingerInfoRequest } from '@/api/request'
 import {
   ActionReducerMapBuilder,
   createAsyncThunk,
   createSlice,
 } from '@reduxjs/toolkit'
-import { getSingerInfoRequest } from './../../../api/request'
 
 interface State {
   artist: any

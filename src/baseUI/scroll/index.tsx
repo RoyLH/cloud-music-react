@@ -1,6 +1,6 @@
 import { debounce } from '@/api/utils'
-import Loading2 from '@/baseUI/loading-v2/index'
-import Loading from '@/baseUI/loading/index'
+import Loading2 from '@/baseUI/loading-v2'
+import Loading from '@/baseUI/loading'
 import BScroll from 'better-scroll'
 import PropTypes from 'prop-types'
 import React, {

@@ -1,12 +1,9 @@
+import { getBannerRequest, getRecommendListRequest } from '@/api/request'
 import {
   ActionReducerMapBuilder,
   createAsyncThunk,
   createSlice,
 } from '@reduxjs/toolkit'
-import {
-  getBannerRequest,
-  getRecommendListRequest,
-} from './../../../api/request'
 
 interface State {
   bannerList: any[]

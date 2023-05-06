@@ -1,6 +1,6 @@
+import { playMode } from '@/api/config'
+import { findIndex } from '@/api/utils'
 import { fromJS, FromJS } from 'immutable'
-import { playMode } from '../../../api/config'
-import { findIndex } from '../../../api/utils'
 import * as actionTypes from './constants'
 
 interface State {

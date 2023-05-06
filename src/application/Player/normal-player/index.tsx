@@ -1,10 +1,10 @@
+import { list, playMode } from '@/api/config'
+import { formatPlayTime, getName, prefixStyle } from '@/api/utils'
+import ProgressBar from '@/baseUI/progress-bar'
+import Scroll from '@/baseUI/scroll'
 import animations from 'create-keyframe-animation'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
-import { list, playMode } from '../../../api/config'
-import { formatPlayTime, getName, prefixStyle } from '../../../api/utils'
-import ProgressBar from '../../../baseUI/progress-bar'
-import Scroll from '../../../baseUI/scroll'
 import {
   Bottom,
   CDWrapper,
@@ -43,6 +43,7 @@ function NormalPlayer(props: any) {
     togglePlayListDispatch,
     clickSpeed,
   } = props
+
   //处理transform的浏览器兼容问题
   const transform = prefixStyle('transform')
 
@@ -86,6 +87,7 @@ function NormalPlayer(props: any) {
     // 两个圆心的横坐标距离和纵坐标距离
     const x = -(window.innerWidth / 2 - paddingLeft)
     const y = window.innerHeight - paddingTop - width / 2 - paddingBottom
+
     return {
       x,
       y,
@@ -211,7 +213,7 @@ function NormalPlayer(props: any) {
                 />
               </div>
               {/* <CD playing={playing} image={song.al.picUrl + "?param=300x300"}></CD> */}
-              <p className="playing_lyric">{currentPlayingLyric}</p>
+              <p className="playing-lyric">{currentPlayingLyric}</p>
             </CDWrapper>
           </CSSTransition>
           <CSSTransition

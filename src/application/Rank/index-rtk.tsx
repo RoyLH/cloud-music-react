@@ -1,10 +1,10 @@
+import { filterIndex } from '@/api/utils'
+import EnterLoading from '@/baseUI/enter-loading'
+import Loading from '@/baseUI/loading'
+import Scroll from '@/baseUI/scroll'
+import { useAppDispatch, useAppSelector } from '@/slice'
 import React, { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
-import { filterIndex } from '../../api/utils'
-import Loading from '../../baseUI/loading'
-import Scroll from '../../baseUI/scroll/index'
-import { useAppDispatch, useAppSelector } from '../../slice'
-import { EnterLoading } from '../Singers/style'
 import { getRankList } from './slice'
 import { Container, List, ListItem, SongList } from './style'
 
@@ -33,6 +33,7 @@ function Rank(props: any) {
   const enterDetail = (detail: any) => {
     navigate(`/rank/${detail.id}`)
   }
+
   const renderSongList = (list: any[]) => {
     return list.length ? (
       <SongList>
@@ -46,6 +47,7 @@ function Rank(props: any) {
       </SongList>
     ) : null
   }
+
   const renderRankList = (list: any[], global?: boolean) => {
     return (
       <List globalRank={global}>
@@ -59,7 +61,7 @@ function Rank(props: any) {
               <div className="img-wrapper">
                 <img src={item.coverImgUrl} alt="" />
                 <div className="decorate"></div>
-                <span className="update_frequecy">{item.updateFrequency}</span>
+                <span className="update-frequecy">{item.updateFrequency}</span>
               </div>
               {renderSongList(item.tracks)}
             </ListItem>
@@ -73,6 +75,7 @@ function Rank(props: any) {
   const officialList = rankList.slice(0, globalStartIndex)
   const globalList = rankList.slice(globalStartIndex)
   const displayStyle = loading ? { display: 'none' } : { display: '' }
+
   return (
     <Container play={songsCount}>
       <Scroll>

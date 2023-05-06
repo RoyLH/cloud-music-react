@@ -1,8 +1,8 @@
+import { ONE_PAGE_COUNT } from '@/api/config'
+import { getName } from '@/api/utils'
+import * as actions from '@/application/Player/store/actions'
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { ONE_PAGE_COUNT } from '../../api/config'
-import { getName } from '../../api/utils'
-import * as actions from '../Player/store/actions'
 import { SongItem, SongList } from './style'
 
 const SongsList = React.forwardRef((props: any, refs: any) => {
@@ -63,19 +63,20 @@ const SongsList = React.forwardRef((props: any, refs: any) => {
 
   const collect = (count: number) => {
     return (
-      <div className="add_list">
+      <div className="add-list">
         <i className="iconfont">&#xe62d;</i>
         <span>收藏({Math.floor(count / 1000) / 10}万)</span>
       </div>
-      // <div className="isCollected">
+      // <div className="collected">
       //   <span>已收藏({Math.floor(count/1000)/10}万)</span>
       // </div>
     )
   }
+
   return (
     <SongList ref={refs} showBackground={props.showBackground}>
-      <div className="first_line">
-        <div className="play_all" onClick={e => selectItem(e, 0)}>
+      <div className="first-line">
+        <div className="play-all" onClick={e => selectItem(e, 0)}>
           <i className="iconfont">&#xe6e3;</i>
           <span>
             播放全部 <span className="sum">(共{totalCount}首)</span>

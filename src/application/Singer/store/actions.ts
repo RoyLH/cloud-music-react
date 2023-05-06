@@ -1,5 +1,5 @@
+import { getSingerInfoRequest } from '@/api/request'
 import { fromJS } from 'immutable'
-import { getSingerInfoRequest } from '../../../api/request'
 import * as actionTypes from './constants'
 
 const changeArtist = (payload: any) => ({

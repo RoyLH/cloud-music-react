@@ -1,5 +1,5 @@
+import global from '@/assets/global-style'
 import styled from 'styled-components'
-import global from '../../../../assets/global-style'
 
 export const FormContainer = styled.div`
   display: flex;
@@ -31,17 +31,21 @@ export const BeautyCheckBox = styled.ul`
   display: flex;
   color: #de5245;
   font-size: 12px;
+
   li {
     display: flex;
     align-items: center;
     margin-left: 20px;
+
     &:first-child {
       margin-left: 0;
     }
   }
+
   input:checked + label {
     background-color: #fff;
   }
+
   label {
     margin-right: 5px;
     padding: 2px;
@@ -52,12 +56,14 @@ export const BeautyCheckBox = styled.ul`
     background-clip: content-box;
     cursor: pointer;
     transition: all 300ms;
+
     &:hover {
       border-color: #fff;
       background-color: #fff;
       box-shadow: 0 0 7px #fff;
     }
   }
+
   a {
     color: #d79088;
   }
@@ -69,6 +75,7 @@ export const BeautyCheckBox = styled.ul`
     animation-iteration-count: 5s;
     animation-play-state: running;
   }
+
   @keyframes shake-horizontal {
     2% {
       transform: translate(-5px, 0) rotate(0);
@@ -279,6 +286,7 @@ export const OtherLoginLink = styled.div`
   width: 85%;
   display: flex;
   justify-content: space-around;
+
   img {
     width: 35px;
   }

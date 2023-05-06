@@ -1,4 +1,4 @@
-import Scroll from '@/baseUI/scroll/index'
+import Scroll from '@/baseUI/scroll'
 import PropTypes from 'prop-types'
 import React, { memo, useEffect, useRef, useState } from 'react'
 import { List, ListItem } from './style'

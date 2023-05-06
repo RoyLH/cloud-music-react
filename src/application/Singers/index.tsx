@@ -1,11 +1,11 @@
+import { alphaTypes, categoryTypes } from '@/api/config'
+import Horizen from '@/baseUI/horizen-item'
+import Loading from '@/baseUI/loading'
+import Scroll from '@/baseUI/scroll'
 import React, { useEffect, useRef } from 'react'
 import LazyLoad, { forceCheck } from 'react-lazyload'
 import { connect } from 'react-redux'
 import { Outlet, useNavigate } from 'react-router-dom'
-import { alphaTypes, categoryTypes } from '../../api/config'
-import Horizen from '../../baseUI/horizen-item/index'
-import Loading from '../../baseUI/loading/index'
-import Scroll from '../../baseUI/scroll/index'
 import * as actions from './store/actions'
 import {
   EnterLoading,

@@ -1,5 +1,5 @@
+import { getBannerRequest, getRecommendListRequest } from '@/api/request'
 import { fromJS } from 'immutable'
-import { getBannerRequest, getRecommendListRequest } from '../../../api/request'
 import * as actionTypes from './constants'
 
 export const changeBannerList = (payload: any) => ({

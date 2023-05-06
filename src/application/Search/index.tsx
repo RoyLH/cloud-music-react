@@ -1,18 +1,19 @@
+import { getName } from '@/api/utils'
+import { SongItem } from '@/application/Album/style'
+import * as playerActions from '@/application/Player/store/actions'
+import { EnterLoading, List, ListItem } from '@/application/Singers/style'
+import Loading from '@/baseUI/loading'
+import MusicalNote from '@/baseUI/music-note'
+import Scroll from '@/baseUI/scroll'
+import SearchBox from '@/baseUI/search-box'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import LazyLoad, { forceCheck } from 'react-lazyload'
 import { connect } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
-import { getName } from '../../api/utils'
-import Loading from '../../baseUI/loading/index'
-import MusicalNote from '../../baseUI/music-note'
-import Scroll from '../../baseUI/scroll/index'
-import SearchBox from '../../baseUI/search-box/index'
-import { SongItem } from '../Album/style'
-import { EnterLoading, List, ListItem } from '../Singers/style'
-import * as playerActions from './../Player/store/actions'
 import * as actions from './store/actions'
 import { Container, HotKey, ShortcutWrapper } from './style'
+
 const Search = (props: any) => {
   const [query, setQuery] = useState('')
   const [show, setShow] = useState(false)
@@ -43,8 +44,28 @@ const Search = (props: any) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const handleQuery = (q: any) => {
+    setQuery(q)
+    if (!q) return
+    changeEnterLoadingDispatch(true)
+    getSuggestListDispatch(q)
+  }
+
+  const selectItem = (e: any, id: string) => {
+    getSongDetailDispatch(id)
+    musicNoteRef.current.startAnimation({
+      x: e.nativeEvent.clientX,
+      y: e.nativeEvent.clientY,
+    })
+  }
+
+  const searchBack = useCallback(() => {
+    setShow(false)
+  }, [])
+
   const renderHotKey = () => {
     const list = hotList ? hotList.toJS() : []
+
     return (
       <ul>
         {list.map((item: any) => {
@@ -68,10 +89,10 @@ const Search = (props: any) => {
   //       {
   //         [1,2,3,4,5,6,7,8,9,5,5,5,5,5].map(item => {
   //           return (
-  //             <li  className="history_item">
+  //             <li  className="history-item">
   //               <span className="text">离圣诞节分厘卡士大夫将来肯定</span>
   //               <span className="icon">
-  //                 <i className="iconfont icon_delete">&#xe600;</i>
+  //                 <i className="iconfont icon-delete">&#xe600;</i>
   //               </span>
   //             </li>
   //           )
@@ -80,12 +101,6 @@ const Search = (props: any) => {
   //     </ul>
   //   )
   // }
-  const handleQuery = (q: any) => {
-    setQuery(q)
-    if (!q) return
-    changeEnterLoadingDispatch(true)
-    getSuggestListDispatch(q)
-  }
 
   const renderSingers = () => {
     const singers = suggestList.artists
@@ -165,18 +180,6 @@ const Search = (props: any) => {
     )
   }
 
-  const selectItem = (e: any, id: string) => {
-    getSongDetailDispatch(id)
-    musicNoteRef.current.startAnimation({
-      x: e.nativeEvent.clientX,
-      y: e.nativeEvent.clientY,
-    })
-  }
-
-  const searchBack = useCallback(() => {
-    setShow(false)
-  }, [])
-
   const renderSongs = () => {
     return (
       <SongItem style={{ paddingLeft: '20px' }}>
@@ -206,7 +209,7 @@ const Search = (props: any) => {
       onExited={() => navigate(-1)}
     >
       <Container play={songsCount}>
-        <div className="search_box_wrapper">
+        <div className="search-box-wrapper">
           <SearchBox
             back={searchBack}
             newQuery={query}

@@ -216,7 +216,7 @@ function PlayList(props: any) {
         onClick={() => togglePlayListDispatch(false)}
       >
         <div
-          className="list_wrapper"
+          className="list-wrapper"
           ref={listWrapperRef}
           onClick={e => e.stopPropagation()}
           onTouchStart={handleTouchStart}

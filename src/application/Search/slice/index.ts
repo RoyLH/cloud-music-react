@@ -1,13 +1,13 @@
 import {
+  getHotKeyWordsRequest,
+  getResultSongsListRequest,
+  getSuggestListRequest,
+} from '@/api/request'
+import {
   ActionReducerMapBuilder,
   createAsyncThunk,
   createSlice,
 } from '@reduxjs/toolkit'
-import {
-  getHotKeyWordsRequest,
-  getResultSongsListRequest,
-  getSuggestListRequest,
-} from './../../../api/request'
 
 interface State {
   hotList: any[]

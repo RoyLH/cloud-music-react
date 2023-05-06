@@ -7,10 +7,10 @@ import Confirm from '../../../baseUI/confirm'
 import Scroll from '../../../baseUI/scroll'
 import * as actions from '../store/actions'
 import {
-  ListContent,
-  ListHeader,
-  PlayListWrapper,
-  ScrollWrapper,
+    ListContent,
+    ListHeader,
+    PlayListWrapper,
+    ScrollWrapper,
 } from './style'
 
 function PlayList(props: any) {
@@ -202,7 +202,7 @@ function PlayList(props: any) {
         onClick={() => togglePlayListDispatch(false)}
       >
         <div
-          className="list_wrapper"
+          className="list-wrapper"
           ref={listWrapperRef}
           onClick={e => e.stopPropagation()}
           onTouchStart={handleTouchStart}

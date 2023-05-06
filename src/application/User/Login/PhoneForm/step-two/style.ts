@@ -4,6 +4,7 @@ export const Container = styled.div`
   p.tips {
     color: #000;
   }
+
   p.vphone {
     display: flex;
     height: 30px;
@@ -24,9 +25,11 @@ export const VcodeBox = styled.div`
   max-width: 320px;
   margin-left: auto;
   margin-right: auto;
+
   .heading-2 {
     color: #333333;
   }
+
   .v-code {
     margin-top: 20px;
     display: flex;
@@ -37,12 +40,14 @@ export const VcodeBox = styled.div`
     margin-left: auto;
     margin-right: auto;
   }
+
   .v-code input {
     position: absolute;
     top: -100%;
     left: -100%;
     opacity: 0;
   }
+
   .v-code .line {
     position: relative;
     width: 40px;
@@ -51,6 +56,7 @@ export const VcodeBox = styled.div`
     text-align: center;
     font-size: 28px;
   }
+
   .v-code .line::after {
     display: block;
     position: absolute;
@@ -63,6 +69,7 @@ export const VcodeBox = styled.div`
     transform: scaleY(0.5);
     transform-origin: 0 100%;
   }
+
   .v-code .line.animated::before {
     display: block;
     position: absolute;
@@ -77,6 +84,7 @@ export const VcodeBox = styled.div`
     animation-iteration-count: infinite;
     animation-fill-mode: both;
   }
+
   /*.v-code .line.animated::before {
     display: block;
     content: '';
@@ -87,19 +95,24 @@ export const VcodeBox = styled.div`
     height: 2px;
     background-color: #000000;
   }*/
+
   @keyframes coruscate {
     0% {
       opacity: 0;
     }
+
     25% {
       opacity: 0;
     }
+
     50% {
       opacity: 1;
     }
+
     75% {
       opacity: 1;
     }
+
     to {
       opacity: 0;
     }

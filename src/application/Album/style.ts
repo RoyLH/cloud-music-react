@@ -1,5 +1,5 @@
+import style from '@/assets/global-style'
 import styled from 'styled-components'
-import style from '../../assets/global-style'
 
 export const Container = styled.div`
   position: fixed;
@@ -12,18 +12,22 @@ export const Container = styled.div`
   overflow: hidden;
   background: #f2f3f4;
   transform-origin: right bottom;
+
   &.fly-enter,
   &.fly-appear {
     transform: rotateZ(30deg) translate3d(100%, 0, 0);
   }
+
   &.fly-enter-active,
   &.fly-appear-active {
     transition: transform 0.3s;
     transform: rotateZ(0deg) translate3d(0, 0, 0);
   }
+
   &.fly-exit {
     transform: rotateZ(0deg) translate3d(0, 0, 0);
   }
+
   &.fly-exit-active {
     transition: transform 0.3s;
     transform: rotateZ(30deg) translate3d(100%, 0, 0);
@@ -40,6 +44,7 @@ export const TopDesc = styled.div`
   height: 200px;
   position: relative;
   z-index: 100;
+
   .background {
     /* z-index: -1; */
     background: url(${(props: { background?: any }) => props.background}) left
@@ -51,10 +56,12 @@ export const TopDesc = styled.div`
     filter: blur(20px);
     transform: scale(1.5);
   }
+
   .img-wrapper {
     width: 120px;
     height: 120px;
     position: relative;
+
     .decorate {
       position: absolute;
       top: 0;
@@ -63,6 +70,7 @@ export const TopDesc = styled.div`
       border-radius: 3px;
       background: linear-gradient(hsla(0, 0%, 43%, 0.4), hsla(0, 0%, 100%, 0));
     }
+
     .play-count {
       position: absolute;
       right: 2px;
@@ -70,10 +78,12 @@ export const TopDesc = styled.div`
       font-size: ${style['font-size-s']};
       line-height: 15px;
       color: ${style['font-color-light']};
+
       .play {
         vertical-align: top;
       }
     }
+
     img {
       width: 120px;
       height: 120px;
@@ -87,6 +97,7 @@ export const TopDesc = styled.div`
     justify-content: space-around;
     height: 120px;
     padding: 0 10px;
+
     .title {
       max-height: 70px;
       overflow: hidden;
@@ -96,18 +107,22 @@ export const TopDesc = styled.div`
       line-height: 1.5;
       font-size: ${style['font-size-l']};
     }
+
     .person {
       display: flex;
+
       .avatar {
         width: 20px;
         height: 20px;
         margin-right: 5px;
+
         img {
           width: 100%;
           height: 100%;
           border-radius: 50%;
         }
       }
+
       .name {
         line-height: 20px;
         font-size: ${style['font-size-m']};
@@ -125,6 +140,7 @@ export const Menu = styled.div`
   margin: 0 30px;
   margin-top: -20px;
   margin-bottom: 10px;
+
   > div {
     display: flex;
     flex-direction: column;
@@ -144,31 +160,36 @@ export const Menu = styled.div`
 export const SongList = styled.div`
   border-radius: 10px;
   opacity: 0.98;
-  .first_line {
+
+  .first-line {
     box-sizing: border-box;
     padding: 10px 0;
     margin-left: 10px;
     position: relative;
     justify-content: space-between;
     border-bottom: 1px solid ${style['border-color']};
-    .play_all {
+
+    .play-all {
       display: inline-block;
       line-height: 24px;
       color: ${style['font-color-desc']};
+
       .iconfont {
         font-size: 24px;
         margin-right: 10px;
         vertical-align: top;
       }
+
       .sum {
         font-size: ${style['font-size-s']};
         color: ${style['font-color-desc-v2']};
       }
+
       > span {
         vertical-align: top;
       }
     }
-    .add_list {
+    .add-list {
       display: flex;
       align-items: center;
       position: absolute;
@@ -182,11 +203,13 @@ export const SongList = styled.div`
       font-size: 0;
       border-radius: 3px;
       vertical-align: top;
+
       .iconfont {
         vertical-align: top;
         font-size: 10px;
         margin: 0 5px 0 10px;
       }
+
       span {
         font-size: 14px;
         line-height: 34px;
@@ -199,12 +222,14 @@ export const SongItem = styled.ul`
     display: flex;
     height: 60px;
     align-items: center;
+
     .index {
       width: 60px;
       height: 60px;
       line-height: 60px;
       text-align: center;
     }
+
     .info {
       box-sizing: border-box;
       flex: 1;
@@ -214,9 +239,11 @@ export const SongItem = styled.ul`
       flex-direction: column;
       justify-content: space-around;
       border-bottom: 1px solid ${style['border-color']};
+
       > span:first-child {
         color: ${style['font-color-desc']};
       }
+
       > span:last-child {
         font-size: ${style['font-size-s']};
         color: #bba8a8;

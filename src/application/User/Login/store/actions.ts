@@ -2,7 +2,7 @@ import {
   loginByPhoneRequest,
   loginByVcodeRequest,
   sentVcodeRequest,
-} from '../../../../api/request'
+} from '@/api/request'
 import * as actionTypes from './constants'
 
 export const saveUserInfo = (data: any) => ({

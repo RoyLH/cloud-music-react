@@ -1,10 +1,10 @@
+import { playMode } from '@/api/config'
+import Lyric from '@/api/lyric-parser'
+import { getLyricRequest } from '@/api/request'
+import { findIndex, getSongUrl, isEmptyObject, shuffle } from '@/api/utils'
+import Toast from '@/baseUI/toast'
+import { useAppDispatch, useAppSelector } from '@/slice'
 import React, { useEffect, useRef, useState } from 'react'
-import { playMode } from '../../api/config'
-import Lyric from '../../api/lyric-parser'
-import { getLyricRequest } from '../../api/request'
-import { findIndex, getSongUrl, isEmptyObject, shuffle } from '../../api/utils'
-import Toast from '../../baseUI/toast/index'
-import { useAppDispatch, useAppSelector } from '../../slice'
 import MiniPlayer from './mini-player'
 import NormalPlayer from './normal-player'
 import PlayList from './play-list/index-rtk'
@@ -123,6 +123,7 @@ function Player(props: any) {
     setTimeout(() => {
       songReady.current = true
     }, 3000)
+
     getLyricRequest(id)
       .then((data: any) => {
         lyric = data.lrc && data.lrc.lyric
@@ -228,6 +229,7 @@ function Player(props: any) {
     changeModeDispatch(newMode)
     toastRef.current.show()
   }
+
   const handleError = () => {
     songReady.current = true
     handleNext()
