@@ -66,13 +66,13 @@ const slice = createSlice({
   name: 'singers',
   initialState,
   reducers: {
-    CHANGE_ALPHA(state, action) {
-      state.alpha = action.payload
+    CHANGE_CATOGORY(state, action) {
+      state.category = action.payload
       state.listOffset = 0
       state.enterLoading = true
     },
-    CHANGE_CATOGORY(state, action) {
-      state.category = action.payload
+    CHANGE_ALPHA(state, action) {
+      state.alpha = action.payload
       state.listOffset = 0
       state.enterLoading = true
     },

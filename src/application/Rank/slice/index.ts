@@ -7,7 +7,7 @@ import {
 
 interface State {
   rankList: any[]
-  loading: true
+  loading: boolean
 }
 
 const initialState: State = {

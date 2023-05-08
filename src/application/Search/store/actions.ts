@@ -1,7 +1,7 @@
 import {
   getHotKeyWordsRequest,
   getResultSongsListRequest,
-  getSuggestListRequest,
+  getSuggestRequest,
 } from '@/api/request'
 import { fromJS } from 'immutable'
 import * as actionTypes from './constants'
@@ -11,7 +11,7 @@ const changeHotKeyWords = (payload: any) => ({
   payload: fromJS(payload),
 })
 
-const changeSuggestList = (payload: any) => ({
+const changeSuggest = (payload: any) => ({
   type: actionTypes.SET_SUGGEST_LIST,
   payload: fromJS(payload),
 })
@@ -36,12 +36,12 @@ export const getHotKeyWords = () => {
     })
   }
 }
-export const getSuggestList = (query: string) => {
+export const getSuggest = (query: string) => {
   return (dispatch: (...args: any[]) => void) => {
-    getSuggestListRequest(query).then((res: any) => {
-      const { result: suggestList = [] } = res
+    getSuggestRequest(query).then((res: any) => {
+      const { result: suggest = [] } = res
 
-      dispatch(changeSuggestList(suggestList))
+      dispatch(changeSuggest(suggest))
     })
     getResultSongsListRequest(query).then((res: any) => {
       const {

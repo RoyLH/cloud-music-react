@@ -1,7 +1,7 @@
 import {
   getHotKeyWordsRequest,
   getResultSongsListRequest,
-  getSuggestListRequest,
+  getSuggestRequest,
 } from '@/api/request'
 import {
   ActionReducerMapBuilder,
@@ -30,11 +30,11 @@ export const getHotKeyWords = createAsyncThunk(
   }
 )
 
-export const getSuggestList = createAsyncThunk(
-  'search/getSuggestList',
+export const getSuggest = createAsyncThunk(
+  'search/getSuggest',
   async (query: string) => {
     return await Promise.all([
-      getSuggestListRequest(query),
+      getSuggestRequest(query),
       getResultSongsListRequest(query),
     ])
   }
@@ -71,8 +71,8 @@ const slice = createSlice({
     })
     builder.addCase(getHotKeyWords.rejected, () => {})
 
-    builder.addCase(getSuggestList.pending, () => {})
-    builder.addCase(getSuggestList.fulfilled, (state: State, { payload }) => {
+    builder.addCase(getSuggest.pending, () => {})
+    builder.addCase(getSuggest.fulfilled, (state: State, { payload }) => {
       const [
         { result: suggestList = [] },
         {
@@ -94,7 +94,7 @@ const slice = createSlice({
         payload: false,
       })
     })
-    builder.addCase(getSuggestList.rejected, () => {})
+    builder.addCase(getSuggest.rejected, () => {})
   },
 })
 

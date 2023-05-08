@@ -34,7 +34,7 @@ const Search = (props: any) => {
   const {
     getHotKeyWordsDispatch,
     changeEnterLoadingDispatch,
-    getSuggestListDispatch,
+    getSuggestDispatch,
     getSongDetailDispatch,
   } = props
 
@@ -48,7 +48,7 @@ const Search = (props: any) => {
     setQuery(q)
     if (!q) return
     changeEnterLoadingDispatch(true)
-    getSuggestListDispatch(q)
+    getSuggestDispatch(q)
   }
 
   const selectItem = (e: any, id: string) => {
@@ -272,8 +272,8 @@ const mapDispatchToProps = (dispatch: (...args: any[]) => void) => {
     changeEnterLoadingDispatch(data: any) {
       dispatch(actions.changeEnterLoading(data))
     },
-    getSuggestListDispatch(data: any) {
-      dispatch(actions.getSuggestList(data))
+    getSuggestDispatch(data: any) {
+      dispatch(actions.getSuggest(data))
     },
     getSongDetailDispatch(id: string) {
       dispatch(playerActions.getSongDetail(id))

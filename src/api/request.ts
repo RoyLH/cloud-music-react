@@ -38,7 +38,7 @@ export const getHotKeyWordsRequest = () => {
   return axiosInstance.get(`/search/hot`)
 }
 
-export const getSuggestListRequest = (query: string) => {
+export const getSuggestRequest = (query: string) => {
   return axiosInstance.get(`/search/suggest?keywords=${query}`)
 }
 

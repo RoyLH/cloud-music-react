@@ -12,7 +12,7 @@ import { CSSTransition } from 'react-transition-group'
 // import * as playerActions from '@/application/Player/store/actions'
 import { getSongDetail } from '@/application/Player/slice'
 import { EnterLoading, List, ListItem } from '@/application/Singers/style'
-import searchSlice, { getHotKeyWords, getSuggestList } from './slice'
+import searchSlice, { getHotKeyWords, getSuggest } from './slice'
 import { Container, HotKey, ShortcutWrapper } from './style'
 
 const Search = (props: any) => {
@@ -35,8 +35,8 @@ const Search = (props: any) => {
   const changeEnterLoadingDispatch = (data: any) => {
     dispatch(searchSlice.actions.SET_ENTER_LOADING(data))
   }
-  const getSuggestListDispatch = (data: any) => {
-    dispatch(getSuggestList(data))
+  const getSuggestDispatch = (data: any) => {
+    dispatch(getSuggest(data))
   }
   const getSongDetailDispatch = (id: string) => {
     dispatch(getSongDetail(id))
@@ -52,7 +52,7 @@ const Search = (props: any) => {
     setQuery(q)
     if (!q) return
     changeEnterLoadingDispatch(true)
-    getSuggestListDispatch(q)
+    getSuggestDispatch(q)
   }
 
   const selectItem = (e: any, id: string) => {
@@ -275,8 +275,8 @@ const Search = (props: any) => {
 //     changeEnterLoadingDispatch(data: any) {
 //       dispatch(actions.changeEnterLoading(data))
 //     },
-//     getSuggestListDispatch(data: any) {
-//       dispatch(actions.getSuggestList(data))
+//     getSuggestDispatch(data: any) {
+//       dispatch(actions.getSuggest(data))
 //     },
 //     getSongDetailDispatch(id: string) {
 //       dispatch(playerActions.getSongDetail(id))
