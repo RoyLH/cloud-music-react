@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { List, ListItem, ListWrapper } from './style'
 
 function RecommendList(props: any) {
+  const { recommendList } = props
   const navigate = useNavigate()
 
   const enterDetail = (id: string) => {
@@ -14,7 +15,7 @@ function RecommendList(props: any) {
     <ListWrapper>
       <h1 className="title">推荐歌单</h1>
       <List>
-        {props.recommendList.map((item: any, index: any) => {
+        {recommendList.map((item: any, index: any) => {
           return (
             <ListItem
               key={item.id + index}

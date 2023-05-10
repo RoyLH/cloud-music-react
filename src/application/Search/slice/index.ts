@@ -11,14 +11,14 @@ import {
 
 interface State {
   hotList: any[]
-  suggestList: any[]
+  suggest: any
   songsList: any[]
   enterLoading: boolean
 }
 
 const initialState: State = {
   hotList: [],
-  suggestList: [],
+  suggest: {},
   songsList: [],
   enterLoading: false,
 }
@@ -47,8 +47,8 @@ const slice = createSlice({
     SET_HOT_KEYWRODS(state, action) {
       state.hotList = action.payload
     },
-    SET_SUGGEST_LIST(state, action) {
-      state.suggestList = action.payload
+    SET_SUGGEST(state, action) {
+      state.suggest = action.payload
     },
     SET_RESULT_SONGS_LIST(state, action) {
       state.songsList = action.payload
@@ -74,15 +74,15 @@ const slice = createSlice({
     builder.addCase(getSuggest.pending, () => {})
     builder.addCase(getSuggest.fulfilled, (state: State, { payload }) => {
       const [
-        { result: suggestList = [] },
+        { result: suggest = [] },
         {
           result: { songs = [] },
         },
       ] = payload as any
 
-      slice.caseReducers.SET_SUGGEST_LIST(state, {
-        type: 'SET_SUGGEST_LIST',
-        payload: suggestList,
+      slice.caseReducers.SET_SUGGEST(state, {
+        type: 'SET_SUGGEST',
+        payload: suggest,
       })
 
       slice.caseReducers.SET_RESULT_SONGS_LIST(state, {

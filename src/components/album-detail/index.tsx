@@ -1,4 +1,4 @@
-import SongsList from '@/application/SongList/'
+import SongsList from '@/application/SongList'
 import SongsListRTK from '@/application/SongList/index-rtk'
 import React from 'react'
 import { Menu, TopDesc } from './style'

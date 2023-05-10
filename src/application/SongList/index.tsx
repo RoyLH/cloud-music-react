@@ -21,7 +21,7 @@ const SongsList = React.forwardRef((props: any, refs: any) => {
   const {
     changePlayListDispatch,
     changeCurrentIndexDispatch,
-    changeSequecePlayListDispatch,
+    changeSequencePlayListDispatch,
   } = props
   const totalCount = songs.length
 
@@ -33,7 +33,7 @@ const SongsList = React.forwardRef((props: any, refs: any) => {
 
   const selectItem = (e: any, index: number) => {
     changePlayListDispatch(songs)
-    changeSequecePlayListDispatch(songs)
+    changeSequencePlayListDispatch(songs)
     changeCurrentIndexDispatch(index)
     musicAnimation(e.nativeEvent.clientX, e.nativeEvent.clientY)
   }
@@ -104,7 +104,7 @@ const mapDispatchToProps = (dispatch: (...args: any[]) => void) => {
     changeCurrentIndexDispatch(data: any) {
       dispatch(actions.changeCurrentIndex(data))
     },
-    changeSequecePlayListDispatch(data: any) {
+    changeSequencePlayListDispatch(data: any) {
       dispatch(actions.changeSequencePlayList(data))
     },
   }

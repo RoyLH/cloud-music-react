@@ -183,7 +183,7 @@ function NormalPlayer(props: any) {
           />
         </div>
         <div className="background layer"></div>
-        <Top className="top">
+        <Top>
           <div className="back" onClick={() => toggleFullScreenDispatch(false)}>
             <i className="iconfont icon-back">&#xe662;</i>
           </div>
@@ -227,7 +227,6 @@ function NormalPlayer(props: any) {
                   style={{
                     visibility: currentState === 'lyric' ? 'visible' : 'hidden',
                   }}
-                  className="lyric_wrapper"
                 >
                   {currentLyric ? (
                     currentLyric.lines.map((item: any, index: number) => {

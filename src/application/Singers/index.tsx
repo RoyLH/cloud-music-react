@@ -1,4 +1,5 @@
 import { alphaTypes, categoryTypes } from '@/api/config'
+import EnterLoading from '@/baseUI/enter-loading'
 import Horizen from '@/baseUI/horizen-item'
 import Loading from '@/baseUI/loading'
 import Scroll from '@/baseUI/scroll'
@@ -7,13 +8,7 @@ import LazyLoad, { forceCheck } from 'react-lazyload'
 import { connect } from 'react-redux'
 import { Outlet, useNavigate } from 'react-router-dom'
 import * as actions from './store/actions'
-import {
-  EnterLoading,
-  List,
-  ListContainer,
-  ListItem,
-  NavContainer,
-} from './style'
+import { List, ListContainer, ListItem, NavContainer } from './style'
 
 function Singers(props: any) {
   const scrollRef = useRef<any>(null)
@@ -179,7 +174,7 @@ const mapDispatchToProps = (dispatch: (...args: any[]) => void) => {
         dispatch(actions.refreshMoreSingerList())
       }
     },
-    //顶部下拉刷新
+    // 顶部下拉刷新
     pullDownRefresh(category: string, alpha: string) {
       dispatch(actions.changePullDownLoading(true))
       dispatch(actions.changeListOffset(0))

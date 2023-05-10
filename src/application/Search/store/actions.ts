@@ -12,7 +12,7 @@ const changeHotKeyWords = (payload: any) => ({
 })
 
 const changeSuggest = (payload: any) => ({
-  type: actionTypes.SET_SUGGEST_LIST,
+  type: actionTypes.SET_SUGGEST,
   payload: fromJS(payload),
 })
 

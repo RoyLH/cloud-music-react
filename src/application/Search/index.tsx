@@ -1,7 +1,8 @@
 import { getName } from '@/api/utils'
 import { SongItem } from '@/application/Album/style'
 import * as playerActions from '@/application/Player/store/actions'
-import { EnterLoading, List, ListItem } from '@/application/Singers/style'
+import { List, ListItem } from '@/application/Singers/style'
+import EnterLoading from '@/baseUI/enter-loading'
 import Loading from '@/baseUI/loading'
 import MusicalNote from '@/baseUI/music-note'
 import Scroll from '@/baseUI/scroll'
@@ -23,12 +24,12 @@ const Search = (props: any) => {
   const {
     hotList,
     enterLoading,
-    suggestList: immutableSuggestList,
+    suggest: immutableSuggest,
     songsCount,
     songsList: immutableSongsList,
   } = props
 
-  const suggestList = immutableSuggestList.toJS()
+  const suggest = immutableSuggest.toJS()
   const songsList = immutableSongsList.toJS()
 
   const {
@@ -103,7 +104,7 @@ const Search = (props: any) => {
   // }
 
   const renderSingers = () => {
-    const singers = suggestList.artists
+    const singers = suggest.artists
     if (!singers || !singers.length) return
     return (
       <List>
@@ -129,7 +130,7 @@ const Search = (props: any) => {
                     src={item.picUrl}
                     width="100%"
                     height="100%"
-                    alt="music"
+                    alt="singer"
                   />
                 </LazyLoad>
               </div>
@@ -142,7 +143,7 @@ const Search = (props: any) => {
   }
 
   const renderAlbum = () => {
-    const albums = suggestList.playlists
+    const albums = suggest.playlists
     if (!albums || !albums.length) return
     return (
       <List>
@@ -259,7 +260,7 @@ const Search = (props: any) => {
 const mapStateToProps = (state: any) => ({
   hotList: state.getIn(['search', 'hotList']),
   enterLoading: state.getIn(['search', 'enterLoading']),
-  suggestList: state.getIn(['search', 'suggestList']),
+  suggest: state.getIn(['search', 'suggest']),
   songsCount: state.getIn(['player', 'playList']).size,
   songsList: state.getIn(['search', 'songsList']),
 })

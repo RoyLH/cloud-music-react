@@ -27,7 +27,7 @@ const SongsList = React.forwardRef((props: any, refs: any) => {
   const changeCurrentIndexDispatch = (data: any) => {
     dispatch(playerSlice.actions.SET_CURRENT_INDEX(data))
   }
-  const changeSequecePlayListDispatch = (data: any) => {
+  const changeSequencePlayListDispatch = (data: any) => {
     dispatch(playerSlice.actions.SET_SEQUENCE_PLAYLIST(data))
   }
 
@@ -39,7 +39,7 @@ const SongsList = React.forwardRef((props: any, refs: any) => {
 
   const selectItem = (e: any, index: number) => {
     changePlayListDispatch(songs)
-    changeSequecePlayListDispatch(songs)
+    changeSequencePlayListDispatch(songs)
     changeCurrentIndexDispatch(index)
     musicAnimation(e.nativeEvent.clientX, e.nativeEvent.clientY)
   }

@@ -1,5 +1,6 @@
 import { getName } from '@/api/utils'
 import { SongItem } from '@/application/Album/style'
+import EnterLoading from '@/baseUI/enter-loading'
 import Loading from '@/baseUI/loading'
 import MusicalNote from '@/baseUI/music-note'
 import Scroll from '@/baseUI/scroll'
@@ -11,7 +12,7 @@ import { useNavigate } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
 // import * as playerActions from '@/application/Player/store/actions'
 import { getSongDetail } from '@/application/Player/slice'
-import { EnterLoading, List, ListItem } from '@/application/Singers/style'
+import { List, ListItem } from '@/application/Singers/style'
 import searchSlice, { getHotKeyWords, getSuggest } from './slice'
 import { Container, HotKey, ShortcutWrapper } from './style'
 
@@ -23,7 +24,7 @@ const Search = (props: any) => {
 
   const dispatch = useAppDispatch()
   const {
-    search: { hotList, enterLoading, suggestList, songsList },
+    search: { hotList, enterLoading, suggest, songsList },
     player: {
       playList: { length: songsCount },
     },
@@ -106,7 +107,7 @@ const Search = (props: any) => {
   // }
 
   const renderSingers = () => {
-    const singers = suggestList.artists
+    const singers = suggest.artists
     if (!singers || !singers.length) return
     return (
       <List>
@@ -132,7 +133,7 @@ const Search = (props: any) => {
                     src={item.picUrl}
                     width="100%"
                     height="100%"
-                    alt="music"
+                    alt="singer"
                   />
                 </LazyLoad>
               </div>
@@ -145,7 +146,7 @@ const Search = (props: any) => {
   }
 
   const renderAlbum = () => {
-    const albums = suggestList.playlists
+    const albums = suggest.playlists
     if (!albums || !albums.length) return
     return (
       <List>
@@ -262,7 +263,7 @@ const Search = (props: any) => {
 // const mapStateToProps = (state: any) => ({
 //   hotList: state.getIn(['search', 'hotList']),
 //   enterLoading: state.getIn(['search', 'enterLoading']),
-//   suggestList: state.getIn(['search', 'suggestList']),
+//   suggest: state.getIn(['search', 'suggest']),
 //   songsCount: state.getIn(['player', 'playList']).size,
 //   songsList: state.getIn(['search', 'songsList']),
 // })

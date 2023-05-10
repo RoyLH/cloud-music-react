@@ -115,7 +115,7 @@ export const Menu = styled.div`
   justify-content: space-between;
   box-sizing: border-box;
   padding: 0 30px 20px 30px;
-  margin: -100px 0 0 0;
+  margin: -100px 0 0;
 
   > div {
     display: flex;
