@@ -30,7 +30,7 @@ function Recommend(props: any) {
 
   return (
     <Content play={songsCount}>
-      <Scroll className="list" onScroll={forceCheck}>
+      <Scroll onScroll={forceCheck}>
         <div>
           <Slider bannerList={bannerListJS}></Slider>
           <RecommendList recommendList={recommendListJS}></RecommendList>

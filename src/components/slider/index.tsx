@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Swiper, { Autoplay, Navigation, Pagination } from 'swiper'
 import 'swiper/css/bundle'
 import 'swiper/css/pagination'
-import { SliderContainer } from './style'
+import { Container } from './style'
 
 Swiper.use([Autoplay, Navigation, Pagination])
 
@@ -29,7 +29,7 @@ function Slider(props: any) {
   }, [bannerList.length, sliderSwiper])
 
   return (
-    <SliderContainer>
+    <Container>
       <div className="before"></div>
       <div className="slider-container">
         <div className="swiper-wrapper">
@@ -50,7 +50,7 @@ function Slider(props: any) {
         </div>
         <div className="swiper-pagination"></div>
       </div>
-    </SliderContainer>
+    </Container>
   )
 }
 

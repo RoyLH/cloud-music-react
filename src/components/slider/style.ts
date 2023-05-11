@@ -1,7 +1,7 @@
 import style from '@/assets/global-style'
 import styled from 'styled-components'
 
-export const SliderContainer = styled.div`
+export const Container = styled.div`
   position: relative;
   box-sizing: border-box;
   width: 100%;
