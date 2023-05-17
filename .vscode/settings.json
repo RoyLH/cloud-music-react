@@ -1,0 +1,26 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true,
+    "source.organizeImports": true,
+    "source.sortImports": true
+  },
+  "eslint.format.enable": true, // 是否开启vscode的eslint
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.alwaysShowStatus": true,
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "scss",
+    "vue",
+    "sass",
+  ]
+}
